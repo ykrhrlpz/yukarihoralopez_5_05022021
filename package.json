@@ -1,0 +1,23 @@
+{
+  "name": "yukarihoralopez_6_05022021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "yarn lint && echo \"Everything is fine!\" && exit 0",
+    "lint": "yarn run eslint src/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ykrhrlpz/yukarihoralopez_6_05022021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ykrhrlpz/yukarihoralopez_6_05022021/issues"
+  },
+  "homepage": "https://github.com/ykrhrlpz/yukarihoralopez_6_05022021#readme",
+  "devDependencies": {
+    "eslint": "^7.27.0"
+  }
+}

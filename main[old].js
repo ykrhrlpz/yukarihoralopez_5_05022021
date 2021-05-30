@@ -670,6 +670,41 @@ let people = {
 
 /* GENIUS PONTA PRICELESS CODE */
 
+// console.log(people.photographers.map( person =>  `<li>${person.name}</li>`).join(""))
+
+
+
+// document.getElementById("people").innerHTML = people.photographers.map( person =>  `<li>${person.name}</li>`).join("")
+
+ 
+// document.getElementById("photographers").innerHTML = 
+// `
+//     <div class="photographer">
+//         <img class="profile-img" src="./img/Mimi/Portrait_Nora.jpg" alt="Thumnail image of Mimi Keel">
+//         <h2>Mimi Keel</h2>
+//         <h5>London, UK</h5>
+//         <p class="description">Finding beauty in everyday things</p>
+//         <p class="price-per-day">$400/day</p>
+//         <div class="personal-tags">
+//             <p class="categoryChip">#Portrait</p>
+//             <p class="categoryChip">#Events</p>
+//             <p class="categoryChip">#Travel</p>
+//             <p class="categoryChip">#Animals</p>
+//         </div
+//     </div>
+// `
+
+
+/* BAD TRAVERSY SHIT */
+// var output = ""
+// for (var i =0; i < people.length; i++)
+// {
+//     output += "<li>"+people[i].name+"</li>"
+// }
+// document.getElementById("people").innerHTML = output
+
+/* GENIUS PONTA PRICELESS CODE */
+
 console.log(people.photographers.map( person =>  `<li>${person.name}</li>`).join(""))
 
 

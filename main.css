@@ -25,7 +25,7 @@ nav
     color: #901c1c;
 }
 
-.categoryChip
+.category-button
 {
     display: inline-block;
     padding: 0 5px;
@@ -38,7 +38,11 @@ nav
     line-height: 16px;
     text-align: center;  
     margin: 0; 
+    color: #901c1c;
+    background-color: transparent;
 } 
+
+
 
 header h1,
 .photographer h2,
@@ -85,13 +89,16 @@ header h1
 main 
 {
     margin-top: 60px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
-
 
 .photographer
 {
     width: 30%;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .profile-img

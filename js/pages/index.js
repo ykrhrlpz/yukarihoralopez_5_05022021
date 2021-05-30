@@ -25,32 +25,38 @@
 // `)
 // .join('')
 
+
+//index.html page
+
+
 document.getElementById("photographers").innerHTML = photographers
 .map(photographer => 
 `
   <div class="photographer">
-    <img class="profile-img" src="${photographer.photo}" alt="Thumnail image of Mimi Keel">
+    <img class="profile-img" src="${photographer.photo}" alt="Thumnail image of ${photographer.name}">
     <h2>${photographer.name}</h2>
     <h5>${photographer.city}, ${photographer.country}</h5>
     <p class="description">${photographer.tagline}</p>
     <p class="price-per-day">$${photographer.price}/day</p>
-    <button class="category-button">#${photographer.tag}</button>
+    ${generateTags(photographer.tags)}
   </div>
 `)
 .join('')
- 
 
-const generateaTags = () => 
-{
-  photographers
-  .filter(photographer => photographer.tags.includes("art"))
-  .map(photographer => 
-  `
-    <button class="category-button">#${photographer.tag}</button>
-  `)
-  .join('')
-  console.log(photographers.tag)
-}
+// const generateTags = () => 
+// {
+//   photographers
+//   .filter(photographer => photographer.tags.includes("art"))
+//   .map(photographer => 
+//   `
+//     <button class="category-button">#${photographer.tag}</button>
+//   `)
+//   .join('')
+//   console.log(photographers.tag)
+// }
 
-generateaTags();
+// generateaTags();
+
+
+
 

@@ -61,7 +61,7 @@ header h1
     font-size: 36px;
     line-height: 47px;
     margin: 0;
- 
+    font-weight: 400;
 }
 
 .photographer h5
@@ -114,3 +114,14 @@ main
     color: #901c1c;
 }
 
+.mr-1
+{
+    margin-right: 3px;
+}
+
+/* photographer.html */
+
+.top 
+{
+    background-color:turquoise;
+}

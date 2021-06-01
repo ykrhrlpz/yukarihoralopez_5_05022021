@@ -86,7 +86,7 @@ header h1
     color: #757575;
 }
 
-main 
+#photographers 
 {
     margin-top: 60px;
     display: flex;
@@ -121,7 +121,40 @@ main
 
 /* photographer.html */
 
-.top 
+#header-photographer 
 {
-    background-color:turquoise;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+#main 
+{
+    background-color: #FAFAFA;
+}
+
+.photographerHeader
+{
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.photographerHeaderLeft
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.contact-button
+{
+    background-color: #901C1C;
+    border-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
 }

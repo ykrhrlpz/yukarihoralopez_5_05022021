@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FishEye - Freelancer Sourcing Platform</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
+MainHeader = () =>
+`
+<header>
         <img src="./img/logo.svg" alt="The logo of FishEye">
         <nav>
             <button id="category-portrait" class="category-button" onclick="renderProfiles('portrait')">#Portrait</button>
@@ -23,16 +13,5 @@
             <button id="category-events" class="category-button" onclick="renderProfiles('events')">#Events</button>
         </nav>
         <h1>Our Photographer</h1>
-    </header>
-    <main id="photographers">
-
-
-    </main>  
-   
-    <script src="./js/components/header.js"></script>
-    <script src="./js/data.js"></script>
-    <script src="./js/function.js"></script>
-    <script src="./js/pages/index.js"></script>
-  
-</body>
-</html>
+</header>
+`

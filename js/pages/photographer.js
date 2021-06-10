@@ -1,4 +1,4 @@
-// //photographer.html page
+//photographer.html page
 
 // document.getElementById("photographer").innerHTML = 
 // `

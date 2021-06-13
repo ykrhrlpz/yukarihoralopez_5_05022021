@@ -1,68 +1,87 @@
-// // function to generate tags 
-// const generateTags2 = (tags) => 
+function showTestPageHeader()
+{
+  document.getElementById("test").innerHTML = 
+  `
+    <header id="header-photographer">
+        <a href="./index.html"><img src="./img/logo.svg" alt="FishEye Home Page"></a>
+    </header>
+    <main id="testphotographers"></main>
+  `
+}
+
+
+
+
+// ----------------------------------------
+class Media
+{
+    constructor(media)
+    {
+        this.media = media;
+    }
+    
+}
+
+const MediaGallery = []
+for (let item of media)
+{
+    const mda = new Media(item);
+    MediaGallery.push(mda)
+}
+
+function showPhotographerHeaderSection(array, ptIndex)
+{
+    document.getElementById("testphotographers").innerHTML = array[ptIndex].showIndividualProfile();
+}
+
+
+// const filterPhotographersByTag = (tag) =>
 // {
-//   return tags.map(tag => `<button class="category-button mr-1">#${tag}</button>`).join('')
+//   let filteredPhotographers = [];
+//   photographer = photographersGroup.filter(photographer => photographer.photographer.tags.includes(tag))
+//   filteredPhotographers.push(photographer)
+//   return filteredPhotographers[0]
+//   // Qestion : Why [0] have to be there?
 // }
 
-// // function to sort photographers by tag
-// const filterPhotographerByTag2 = (tag) =>
-// {
-//   return photographers.filter(photographer => photographer.tags.includes(tag))
-// }
+// fucntion to make an array of a photographer
+const createMediaArrayOfPhotographer = (ptId) =>
+{
+    let mediaGroupByPhotographers = [];
+    md = MediaGallery.filter(media => media.media.photographerId === ptId)
+    mediaGroupByPhotographers.push(md)
+    return mediaGroupByPhotographers[0]
+}
 
-// function showTestPageHeader()
-// {
-//   document.getElementById("test1").innerHTML = 
-//   `
-//   <header>
-//         <a href="./index.html"><img src="./img/logo.svg" alt="FishEye Home Page"></a>
-//         <nav>
-//             <button id="category-portrait" class="category-button" onclick="renderTestProfiles('portrait')">#Portrait</button>
-//             <button id="category-art" class="category-button" onclick="renderTestProfiles('art')">#Art</button>
-//             <button id="category-fashion" class="category-button" onclick="renderTestProfiles('fashion')">#Fashion</button>
-//             <button id="category-architecture" class="category-button" onclick="renderTestProfiles('architecture')">#Architecture</button>
-//             <button id="category-travel" class="category-button" onclick="renderTestProfiles('travel')">#Travel</button>
-//             <button id="category-sport" class="category-button" onclick="renderTestProfiles('sport')">#Sport</button>
-//             <button id="category-animals" class="category-button" onclick="renderTestProfiles('animals')">#Animals</button>
-//             <button id="category-events" class="category-button" onclick="renderTestProfiles('events')">#Events</button>
-//         </nav>
-//         <h1>Our Photographer</h1>
-//     </header>
-//     <main id="testphotographers"></main>
-//   `
-  
-// }
+let test2 = createMediaArrayOfPhotographer(82)
+// console.log(test[0].media.image);
+
+// function to generate gallery of photographers
+const generateGallery = (array) => 
+{
+    // need to have a filter or if statement to check if its image or video
+  return array.map(media => `
+    <article class="image-item">
+        <img src="./img/Tracy/${media.media.image}"/>
+        <div class="img-title">
+            <p>${media.media.title}</p>
+            <div class="rating">
+                <p>${media.media.likes}</p>
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </article>
+  `).join('')
+}
 
 
-// //another : chnaging inner html
+const renderTestPage = () =>
+{
+    showTestPageHeader();
+    showPhotographerHeaderSection(photographersGroup, 1)
+}
 
-// // function to render photographers. When it has a  parameter, it will call the filterPhotographerByTag funtion to filter photographers. When there is no parameter, it will map directly photographers to render all of them.
-// const renderTestProfiles = (tagFilter) =>
-// {
-  
-//   // check if funtion has a parameter
-//   let photographersToDisplay = tagFilter ? filterPhotographerByTag2(tagFilter) : photographers
-//   document.getElementById("testphotographers").innerHTML = photographersToDisplay
-//   .map(photographer => 
-//   `
-//     <article class="photographer">
-//     <img class="profile-img" src="${photographer.photo}" alt="Thumnail image of ${photographer.name}">
-//     <h2  onclick="showProfilePage()">${photographer.name}</h2>
-//     <h5>${photographer.city}, ${photographer.country}</h5>
-//     <p class="description">${photographer.tagline}</p>
-//     <p class="price-per-day">$${photographer.price}/day</p>
-//     ${generateTags2(photographer.tags)}
-//     </article>
-//   `)
-//   .join('')
-// }
+renderTestPage()
 
-// const renderTestPage = () =>
-// {
-//   showTestPageHeader();
-//   renderTestProfiles();
-// }
-
-// renderTestPage()
 
 

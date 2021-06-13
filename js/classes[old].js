@@ -154,11 +154,6 @@ class Media
         this.price = price;
         this.altDescription = altDescription;
     }
-
-    // showTitle()
-    // {
-    //     console.log(`showing the image of ${this.title}.`);
-    // }
 }
 
 const mediaGroup = 
@@ -176,3 +171,31 @@ const mediaGroup =
     new Media(`${media[5].id}`, `${media[5].photographerId}`, `${media[5].title}`, `${media[5].image}`, `${media[5].tags}`, `${media[5].likes}`, `${media[5].date}`, `${media[5].price}`, `${media[5].altDescription}`)
 ]
 
+
+
+const renderTestProfiles = () =>
+{
+    document.getElementById("testphotographers").innerHTML = 
+    `
+    <div class="photographerHeader">
+    <div class="photographerHeaderLeft">
+          <div>
+              <h2>${photographers[0].name}</h2>
+              <h5>${photographers[0].city}, ${photographers[0].country}</h5>
+              <p class="description">${photographers[0].tagline}</p>
+              <p class="price-per-day">$${photographers[0].price}/day</p>
+          </div>
+    </div>
+    <div>
+        <button class="contact-button">Contact Me</button>
+    </div>
+    <div>
+        <img class="profile-img" src="${photographers[0].photo}" alt="Thumnail image of ${photographers[0].name}">
+    </div>
+    </div>
+    <div class="photo-gallery">
+    </div>
+    `
+ 
+
+}

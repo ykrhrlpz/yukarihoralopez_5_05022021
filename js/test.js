@@ -40,9 +40,8 @@ class Media
                     </div>
                 </article>
             `
-
+          
         }
-      
 
         return `
             <article class="image-item">
@@ -58,6 +57,7 @@ class Media
                 </div>
             </article>
         `
+       
     }
 
 }
@@ -111,8 +111,6 @@ function getPhotographerFullNameById(ID)
     photographerName.push(photographer)
     return photographerName[0][0].photographer.name.split(' ').join('').replace('-', '')
 }
-
-console.log(getPhotographerFullNameById(82));
 
 function renderTestPage(id)
 {

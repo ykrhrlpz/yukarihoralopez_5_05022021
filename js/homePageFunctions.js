@@ -54,7 +54,7 @@ class Photographer {
 
 
 			<div class="photo-gallery">
-				${createMediaGroup(createMediaArrayOfPhotographer(ID))}
+				${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
 			</div>
         `
 	}
@@ -98,7 +98,7 @@ function filterPhotographersByTag(tag)
 function showHomePageHeader() {
 	document.getElementById("body").innerHTML =
 		`
-  <header>
+  	<header>
         <a href="./index.html"><img src="./img/logo.svg" alt="FishEye Home Page"></a>
         <nav>
             <button class="category-button" onclick="showHomeMainSection(filterPhotographersByTag('portrait'))">#Portrait</button>
@@ -125,7 +125,7 @@ function showHomeMainSection(array)
 		let select = item.showProfileInMain();
 		group.push(select)
 	})
-	document.getElementById("photographers").innerHTML = group;
+	document.getElementById("photographers").innerHTML = group.join("");
 }
 
 

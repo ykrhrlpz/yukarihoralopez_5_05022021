@@ -8,8 +8,10 @@ class Photographer {
 	{
 		return ` 
 			<article class="photographer">
-				<img class="profile-img" src="${this.photographer.photo}" alt="Thumnail image of ${this.photographer.name}" onclick="renderTestPage(${this.photographer.id})">
-				<h2>${this.photographer.name}</h2>
+				<div onclick="renderTestPage(${this.photographer.id})">
+					<img class="profile-img" src="${this.photographer.photo}" alt="">
+					<h2>${this.photographer.name}</h2>
+				</div>
 				<h5>${this.photographer.city}, ${this.photographer.country}</h5>
 				<p class="description">${this.photographer.tagline}</p>
 				<p class="price-per-day">$${this.photographer.price}/day</p>
@@ -70,7 +72,7 @@ for (let photographer of photographers)
 // function to generate tags of photographers
 function generateTags(tags) 
 {
-	return tags.map(tag => `<button class="category-button mr-1">#${tag}</button>`).join('')
+	return tags.map(tag => `<button class="category-button mr-1" onclick="showHomeMainSection(filterPhotographersByTag('${tag}'))">#${tag}</button>`).join('')
 }
 
 // function to sort photographers by tag

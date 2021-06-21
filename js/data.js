@@ -21,7 +21,7 @@ const photographers =
         "tagline": "Capturer des compositions complexes",
         "price": 250,
         "portrait": "EllieRoseWilkens.jpg",
-        "photo": "./img/EllieRose/Architecture_Horseshoe.jpg",
+        "photo": "./img/Ellie-Rose/Architecture_Horseshoe.jpg",
         "alt-description": "thumbnail image of Ellie-Rose Wilkens"
     },
     {

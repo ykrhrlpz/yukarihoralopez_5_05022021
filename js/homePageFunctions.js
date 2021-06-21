@@ -1,79 +1,85 @@
 class Photographer {
-	constructor(photographer) {
+	constructor(photographer) 
+	{
 		this.photographer = photographer;
 	}
 
-	showProfileInMain() {
-		return ` <article class="photographer">
-        <img class="profile-img" src="${this.photographer.photo}" alt="Thumnail image of ${this.photographer.name}">
-        <h2 onclick="showProfilePage()">${this.photographer.name}</h2>
-        <h5>${this.photographer.city}, ${this.photographer.country}</h5>
-        <p class="description">${this.photographer.tagline}</p>
-        <p class="price-per-day">$${this.photographer.price}/day</p>
-        ${generateTags(this.photographer.tags)}
-        </article>
-        `
+	showProfileInMain() 
+	{
+		return ` 
+			<article class="photographer">
+				<img class="profile-img" src="${this.photographer.photo}" alt="Thumnail image of ${this.photographer.name}" onclick="renderTestPage(${this.photographer.id})">
+				<h2>${this.photographer.name}</h2>
+				<h5>${this.photographer.city}, ${this.photographer.country}</h5>
+				<p class="description">${this.photographer.tagline}</p>
+				<p class="price-per-day">$${this.photographer.price}/day</p>
+				${generateTags(this.photographer.tags)}
+			</article>
+        	`
 	}
 
-
-	showIndividualProfile() {
+	showIndividualProfile(ID) 
+	{
 		return `   
-        <div class="photographerHeader">
-          <div class="photographerHeaderLeft">
-                <div>
-                    <h2>${this.photographer.name}</h2>
-                    <h5>${this.photographer.city}, ${this.photographer.country}</h5>
-                    <p class="header-description">${this.photographer.tagline}</p>
-                    ${generateTags(this.photographer.tags)}
-                </div>
-          </div>
-       
-          <button class="contact-button">Contact Me</button>
-          <div class="header-profile-img-container">
-            <img class="header-profile-img" src="${this.photographer.photo}" alt="Thumnail image of ${this.photographer.name}">
-          </div>
-        </div>
-		
-        
-        <div class="sort-by">
-			<p>Order by</p>
-			<div class="select" tabindex="1">
-				<input class="selectopt" name="test" type="radio" id="opt1" checked>
-				<label for="opt1" class="option">Popularity</label>
-				<input class="selectopt" name="test" type="radio" id="opt2">
-				<label for="opt2" class="option">Date</label>
-				<input class="selectopt" name="test" type="radio" id="opt3">
-				<label for="opt3" class="option">Title</label>
+			<div class="photographerHeader">
+			<div class="photographerHeaderLeft">
+					<div>
+						<h2>${this.photographer.name}</h2>
+						<h5>${this.photographer.city}, ${this.photographer.country}</h5>
+						<p class="header-description">${this.photographer.tagline}</p>
+						${generateTags(this.photographer.tags)}
+					</div>
 			</div>
-        </div>
+		
+			<button class="contact-button">Contact Me</button>
+			<div class="header-profile-img-container">
+				<img class="header-profile-img" src="${this.photographer.photo}" alt="Thumnail image of ${this.photographer.name}">
+			</div>
+			</div>
+			
+			
+			<div class="sort-by">
+				<p>Order by</p>
+				<div class="select" tabindex="1">
+					<input class="selectopt" name="test" type="radio" id="opt1" checked>
+					<label for="opt1" class="option">Popularity</label>
+					<input class="selectopt" name="test" type="radio" id="opt2">
+					<label for="opt2" class="option">Date</label>
+					<input class="selectopt" name="test" type="radio" id="opt3">
+					<label for="opt3" class="option">Title</label>
+				</div>
+			</div>
 
 
-        <div class="photo-gallery">
-        	${generateGallery(test2)}
-        </div>
+			<div class="photo-gallery">
+				
+				${createMediaGroup(createMediaArrayOfPhotographer(ID))}
+			</div>
         `
 	}
 }
 
 // Creating array of photographers
 const photographersGroup = []
-for (let photographer of photographers) {
+for (let photographer of photographers) 
+{
 	const pt = new Photographer(photographer);
 	photographersGroup.push(pt)
 }
 
 // function to generate tags of photographers
-const generateTags = (tags) => {
+function generateTags(tags) 
+{
 	return tags.map(tag => `<button class="category-button mr-1">#${tag}</button>`).join('')
 }
 
 // function to sort photographers by tag
-const filterPhotographersByTag = (tag) => {
+function filterPhotographersByTag(tag) 
+{
 	let filteredPhotographers = [];
 	photographer = photographersGroup.filter(photographer => photographer.photographer.tags.includes(tag))
 	filteredPhotographers.push(photographer)
 	return filteredPhotographers[0]
-	// Qestion : Why [0] have to be there?
 }
 
 // function to show Header of the Home page
@@ -99,14 +105,62 @@ function showHomePageHeader() {
 }
 
 // function to show the main section of Home page which displays photographers info
-function showHomeMainSection(array) {
+function showHomeMainSection(array) 
+{
 	const group = [];
-	array.forEach(item => {
+	array.forEach(item => 
+	{
 		let select = item.showProfileInMain();
 		group.push(select)
 	})
 	document.getElementById("photographers").innerHTML = group;
 }
+
+
+// Function to render Home page
+function renderHomePage() 
+{
+	showHomePageHeader();
+	showHomeMainSection(photographersGroup);
+}
+
+renderHomePage()
+
+
+
+
+
+
+
+
+
+//------------------------------------------------
+
+	// <article class="photographer">
+		// 		<a href="test.html" target="_blank" onclick="showTestPageHeader">
+		// 			<img class="profile-img" src="${this.photographer.photo}" alt="Thumnail image of ${this.photographer.name}">
+		// 			<h2>${this.photographer.name}</h2>
+		// 		</a>
+		// 		<h5>${this.photographer.city}, ${this.photographer.country}</h5>
+		// 		<p class="description">${this.photographer.tagline}</p>
+		// 		<p class="price-per-day">$${this.photographer.price}/day</p>
+		// 		${generateTags(this.photographer.tags)}
+		// 	</article>
+
+    // <a href="test.html" target="_blank" onclick="renderTestPage(${this.photographer.id})">
+	// 		<img class="profile-img" src="${this.photographer.photo}" alt="Thumnail image of ${this.photographer.name}">
+    //     	<h2>${this.photographer.name}</h2>
+	// 	</a>
+    //  <div class="photo-gallery">
+    //     	${generateGallery(test2, ID)}
+
+	// ${makeGallery(index)}
+        	
+    //     </div>
+
+// ${generateGallery(test2, 243)}
+
+
 
 // function showHomeMainSection (array)
 // {
@@ -119,10 +173,10 @@ function showHomeMainSection(array) {
 //     document.getElementById("photographers").innerHTML = group;
 // }
 
-// Function to render Home page
-const renderHomePage = () => {
-	showHomePageHeader();
-	showHomeMainSection(photographersGroup);
-}
 
-// renderHomePage()
+// method
+
+// getID()
+	// {
+	// 	return this.photographer.id
+	// }

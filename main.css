@@ -309,7 +309,7 @@ header h1
   display: flex;
   align-items: center;
   background: #901C1C;
-  border-top: #fff solid 1px;
+  /* border-top: #fff solid 1px; */
   position: absolute;
   top: 0;
   width: 100%;
@@ -321,7 +321,6 @@ header h1
   overflow: hidden;
   white-space: nowrap;  
 }
-
 .option:hover 
 {
   background: #901C1C;
@@ -357,11 +356,11 @@ input:checked + label:after
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
 	border-top: 5px solid white;
-  position: absolute;
-  right: 10px;
-  top: calc(50% - 2.5px);
-  pointer-events: none;
-  z-index: 3;
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 2.5px);
+    pointer-events: none;
+    z-index: 3;
 }
 
 input:checked + label:before 

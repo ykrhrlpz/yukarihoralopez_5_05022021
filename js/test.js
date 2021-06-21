@@ -23,8 +23,31 @@ class Media
 
     createGallery()
     {
-        return　`
+        if (this.media.video)
+        {  
+            return `
+                <article class="image-item">        
+                        <video width="350" height="300" controls="controls" preload="metadata" poster="./img/PhotographersIDPhotos/${getPhotographerFullNameById(this.media.photographerId)}.jpg">
+                            <source src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.video}" type="video/mp4">
+                        </video>
+
+                    <div class="img-title">
+                        <p>${this.media.title}</p>
+                        <div class="rating">
+                            <p>${this.media.likes}</p>
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </article>
+            `
+
+        }
+      
+
+        return `
             <article class="image-item">
+             
+                
                 <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}"/>
                 <div class="img-title">
                     <p>${this.media.title}</p>
@@ -36,35 +59,6 @@ class Media
             </article>
         `
     }
-
-
-    // createMediaArray(index)
-    // {
-    //     let ptID = photographersGroup[index].getID()
-    //     let mediaGroupByPhotographers = [];
-    //     let md
-    //     md = MediaGalleryOfAllPhotographers.filter(media => media.media.photographerId === ptID)
-    //     mediaGroupByPhotographers.push(md)
-    //     return mediaGroupByPhotographers[0]
-    // }
-
-
-    // createGallery(array)
-    // {
-    //       return array.map(media => `
-    //         <article class="image-item">
-    //             <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}"/>
-    //             <div class="img-title">
-    //                 <p>${this.media.title}</p>
-    //                 <div class="rating">
-    //                     <p>${this.media.likes}</p>
-    //                     <i class="fas fa-heart"></i>
-    //                 </div>
-    //             </div>
-    //         </article>
-    //     `).join('')
-    // }
-
 
 }
 
@@ -108,6 +102,17 @@ function getPhotographerNameById(ID)
     photographerName.push(photographer)
     return photographerName[0][0].photographer.name.split(" ")[0]
 }
+
+
+function getPhotographerFullNameById(ID)
+{
+    let photographerName = []
+    photographer = photographersGroup.filter(photographer => photographer.photographer.id == ID)
+    photographerName.push(photographer)
+    return photographerName[0][0].photographer.name.split(' ').join('').replace('-', '')
+}
+
+console.log(getPhotographerFullNameById(82));
 
 function renderTestPage(id)
 {
@@ -267,3 +272,51 @@ function renderTestPage(id)
 //     // return MediaGalleryOfAllPhotographers[ptIndex].getPhotographerID()
 // }
 
+
+// method
+
+
+
+    // createMediaArray(index)
+    // {
+    //     let ptID = photographersGroup[index].getID()
+    //     let mediaGroupByPhotographers = [];
+    //     let md
+    //     md = MediaGalleryOfAllPhotographers.filter(media => media.media.photographerId === ptID)
+    //     mediaGroupByPhotographers.push(md)
+    //     return mediaGroupByPhotographers[0]
+    // }
+
+
+    // createGallery(array)
+    // {
+    //       return array.map(media => `
+    //         <article class="image-item">
+    //             <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}"/>
+    //             <div class="img-title">
+    //                 <p>${this.media.title}</p>
+    //                 <div class="rating">
+    //                     <p>${this.media.likes}</p>
+    //                     <i class="fas fa-heart"></i>
+    //                 </div>
+    //             </div>
+    //         </article>
+    //     `).join('')
+    // }
+
+
+    // createGallery()
+    // {
+    //     return　`
+    //         <article class="image-item">
+    //             <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}"/>
+    //             <div class="img-title">
+    //                 <p>${this.media.title}</p>
+    //                 <div class="rating">
+    //                     <p>${this.media.likes}</p>
+    //                     <i class="fas fa-heart"></i>
+    //                 </div>
+    //             </div>
+    //         </article>
+    //     `
+    // }

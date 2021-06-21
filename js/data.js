@@ -9,7 +9,6 @@ const photographers =
         "tagline": "Voir le beau dans le quotidien",
         "price": 400,
         "portrait": "MimiKeel.jpg",
-        "photo": "./img/Mimi/Portrait_Nora.jpg",
         "alt-description": "thumbnail image of Mimi Keel"
     },
     {
@@ -21,7 +20,6 @@ const photographers =
         "tagline": "Capturer des compositions complexes",
         "price": 250,
         "portrait": "EllieRoseWilkens.jpg",
-        "photo": "./img/Ellie-Rose/Architecture_Horseshoe.jpg",
         "alt-description": "thumbnail image of Ellie-Rose Wilkens"
     },
     {
@@ -33,7 +31,6 @@ const photographers =
         "tagline": "Photographe freelance",
         "price": 500,
         "portrait": "TracyGalindo.jpg",
-        "photo": "./img/Tracy/Fashion_Urban_Jungle.jpg",
         "alt-description": "thumbnail image of Tracy Galindo"
     },
     {
@@ -45,7 +42,6 @@ const photographers =
         "tagline": "Toujours aller de l'avant",
         "price": 350,
         "portrait": "NabeelBradford.jpg",
-        "photo": "./img/Nabeel/Travel_Outdoor_Baths.jpg",
         "alt-description": "thumbnail image of Nabeel Bradford"
     },
     {
@@ -57,7 +53,6 @@ const photographers =
         "tagline": "Je crée des souvenirs",
         "price": 275,
         "portrait": "RhodeDubois.jpg",
-        "photo": "./img/Rhode/Fashion_Melody_Red_on_Stripes.jpg",
         "alt-description": "thumbnail image of Rhode Dubois"
     },
     {
@@ -69,7 +64,6 @@ const photographers =
         "tagline": "Toujours à la recherche de LA photo",
         "price": 300,
         "portrait": "MarcelNikolic.jpg",
-        "photo": "./img/Marcel/Travel_Tower.jpg",
         "alt-description": "thumbnail image of Marcel Nikolic"
     }
 ]

@@ -264,6 +264,11 @@ header h1
     object-fit: cover;
 }
 
+.image-item video
+{
+    object-fit: cover;
+}
+
 .img-title
 {
     display: flex;

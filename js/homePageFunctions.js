@@ -9,7 +9,7 @@ class Photographer {
 		return ` 
 			<article class="photographer">
 				<div onclick="renderTestPage(${this.photographer.id})">
-					<img class="profile-img" src="${this.photographer.photo}" alt="">
+					<img class="profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="">
 					<h2>${this.photographer.name}</h2>
 				</div>
 				<h5>${this.photographer.city}, ${this.photographer.country}</h5>
@@ -35,13 +35,13 @@ class Photographer {
 		
 			<button class="contact-button">Contact Me</button>
 			<div class="header-profile-img-container">
-				<img class="header-profile-img" src="${this.photographer.photo}" alt="Thumnail image of ${this.photographer.name}">
+				<img class="header-profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="Thumnail image of ${this.photographer.name}">
 			</div>
 			</div>
 			
 			
 			<div class="sort-by">
-				<p>Order by</p>
+				<iup>Order by</p>
 				<div class="select" tabindex="1">
 					<input class="selectopt" name="test" type="radio" id="opt1" checked>
 					<label for="opt1" class="option">Popularity</label>
@@ -54,12 +54,22 @@ class Photographer {
 
 
 			<div class="photo-gallery">
-				
 				${createMediaGroup(createMediaArrayOfPhotographer(ID))}
 			</div>
         `
 	}
 }
+
+	// <article class="photographer">
+	// 	<div onclick="renderTestPage(${this.photographer.id})">
+	// 		<img class="profile-img" src="./img/${getPhotographerNameById(this.photographer.id)}/${this.photographer.portrait}" alt="">
+	// 		<h2>${this.photographer.name}</h2>
+	// 	</div>
+	// 	<h5>${this.photographer.city}, ${this.photographer.country}</h5>
+	// 	<p class="description">${this.photographer.tagline}</p>
+	// 	<p class="price-per-day">$${this.photographer.price}/day</p>
+	// 	${generateTags(this.photographer.tags)}
+	// </article>
 
 // Creating array of photographers
 const photographersGroup = []

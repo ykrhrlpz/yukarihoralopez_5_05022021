@@ -98,7 +98,7 @@ function filterPhotographersByTag(tag)
 function showHomePageHeader() {
 	document.getElementById("body").innerHTML =
 		`
-  	<header>
+  	<header class="homepage-header">
         <a href="./index.html"><img src="./img/logo.svg" alt="FishEye Home Page"></a>
         <nav>
             <button class="category-button" onclick="showHomeMainSection(filterPhotographersByTag('portrait'))">#Portrait</button>

@@ -24,19 +24,19 @@ class Photographer {
 	{
 		return `   
 			<div class="photographerHeader">
-			<div class="photographerHeaderLeft">
-					<div>
-						<h2>${this.photographer.name}</h2>
-						<h5>${this.photographer.city}, ${this.photographer.country}</h5>
-						<p class="header-description">${this.photographer.tagline}</p>
-						${generateTags(this.photographer.tags)}
-					</div>
-			</div>
+				<div class="photographerHeaderLeft">
+						<div>
+							<h2>${this.photographer.name}</h2>
+							<h5>${this.photographer.city}, ${this.photographer.country}</h5>
+							<p class="header-description">${this.photographer.tagline}</p>
+							${generateTags(this.photographer.tags)}
+						</div>
+				</div>
 		
-			<button class="contact-button">Contact Me</button>
-			<div class="header-profile-img-container">
-				<img class="header-profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="Thumnail image of ${this.photographer.name}">
-			</div>
+				<button class="contact-button">Contact me</button>
+				<div class="header-profile-img-container">
+					<img class="header-profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="Thumnail image of ${this.photographer.name}">
+				</div>
 			</div>
 			
 			

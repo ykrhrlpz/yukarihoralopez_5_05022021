@@ -152,6 +152,15 @@ header h1
     width: 90%;
 }
 
+@media screen and (max-width: 700px) 
+{
+  #testphotographers
+  {
+      gap: 7px;
+  }
+}
+
+
 .photographer
 {
     width: 30%;
@@ -386,7 +395,7 @@ header h1
 
 
 
-.photo-gallery
+#photo-gallery
 {
     width: 100%;
     display: flex;
@@ -475,6 +484,14 @@ header h1
   position: relative;
   width: 150px;
   height: 40px;
+}
+
+@media screen and (max-width: 700px) 
+{
+  .select 
+  {
+    display: none;
+  }
 }
 
 .option 

@@ -11,7 +11,13 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body id="test">
-    <div class="photo-gallery">
+    <button id="popularity" onclick="array1.slice().sort(function(a,b){
+        // Turn the strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(a.media.date) - new Date(b.media.date)">Popularity</button>
+            <button id="date" onclick="">Date</button>
+            <button id="likes" onclick="">likes</button>
+    <!-- <div class="photo-gallery">
         <article class="image-item">        
             <img src="./img/Mimi/Event_BenevidesWedding.jpg"/>
     
@@ -19,11 +25,12 @@
             <p>title</p>
             <div class="rating">
                 <p>11</p>
-                <img src="https://img.icons8.com/android/24/000000/like.png"/>
+                
             </div>
+            
         </div>
     </article>
-    </div>
+    </div> -->
     
 
    <!-- <p>Hello</p> -->

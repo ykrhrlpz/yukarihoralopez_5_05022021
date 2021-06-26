@@ -60,6 +60,8 @@ class Media
 
 }
 
+
+//make an array of all the media from every photographer
 const MediaGalleryOfAllPhotographers = []
 for (let item of media)
 {
@@ -67,11 +69,19 @@ for (let item of media)
     MediaGalleryOfAllPhotographers.push(mda)
 }
 
+
+//Function to create an array of media group
 function createMediaGroup (array)
 {
     return array.map(media => media.createGallery())
 }
 
+
+
+// console.log(createMediaGroupByDate(createMediaArrayOfPhotographer(82)));
+// console.log(createMediaGroup(createMediaArrayOfPhotographer(82)));
+
+// /make an array of all the media from a photographer
 const MediaGalleryByPhotographer = []
 for (let item of MediaGalleryOfAllPhotographers)
 {
@@ -87,12 +97,37 @@ function createMediaArrayOfPhotographer(ID)
     mediaGroupByPhotographers.push(md)
     return mediaGroupByPhotographers[0]
 }
+// fucntion to sort gallery of a photographer by date
+function createMediaArrayOfPhotographerByDate(ID) 
+{
+    let mediaGroupByPhotographers = [];
+    md = MediaGalleryOfAllPhotographers.filter(media => media.media.photographerId === ID)
+    mediaGroupByPhotographers.push(md)
+     mediaGroupByPhotographers[0].sort(function(a,b){
+        // Turn the strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(a.media.date) - new Date(b.media.date)
+    })
+    return mediaGroupByPhotographers[0]
+}
 
+function sortByDate(ID)
+{
+    let content = createMediaGroup(createMediaArrayOfPhotographerByDate(ID)).join("")
+    // console.log(content);
+    document.getElementById("photo-gallery").innerHTML = content
+
+}
+
+
+//function to show the main secton of each photographer page
 function showPhotographerMainSection(array, id)
 {
     document.getElementById("testphotographers").innerHTML = array.find(photographer => photographer.photographer.id === id).showIndividualProfile(id);
 }
 
+
+//function to get photographer name from their ID
 function getPhotographerNameById(ID)
 {
     let photographerName = []
@@ -101,6 +136,7 @@ function getPhotographerNameById(ID)
     return photographerName[0][0].photographer.name.split(" ")[0]
 }
 
+//function to get photographer fullname from their ID
 function getPhotographerFullNameById(ID)
 {
     let photographerName = []
@@ -109,14 +145,41 @@ function getPhotographerFullNameById(ID)
     return photographerName[0][0].photographer.name.split(' ').join('').replace('-', '')
 }
 
+
+//function to render photographer's page
 function renderTestPage(id)
 {
     showTestPageHeader();
     showPhotographerMainSection(photographersGroup, id)
 }
 
+//original Array
+const array1 = createMediaArrayOfPhotographer(243)
+
+ //Sorted array　Date ascending order
+const newArray = 
+array1.slice().sort(function(a,b){
+    // Turn the strings into dates, and then subtract them
+    // to get a value that is either negative, positive, or zero.
+    return new Date(a.media.date) - new Date(b.media.date)
+})
 
 
+
+
+// function myFunction() {
+//     let test = createMediaGroup(createMediaArrayOfPhotographer(82)).join("")
+//     // console.log(test);
+// 	test.sort(function(a, b){return new Date(a.media.date) - new Date(b.media.date)});
+// 	document.getElementById("photo-gallery").innerHTML = test
+//     // console.log(test);
+//   }
+
+//   console.log(myFunction());
+console.log(array1);
+console.log(newArray);
+
+//  console.log(array1);
 
 
 

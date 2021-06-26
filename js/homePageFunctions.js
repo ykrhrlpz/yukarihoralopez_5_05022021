@@ -47,18 +47,36 @@ class Photographer {
 					<label for="opt1" class="option">Popularity</label>
 					<input class="selectopt" name="test" type="radio" id="opt2">
 					<label for="opt2" class="option">Date</label>
-					<input class="selectopt" name="test" type="radio" id="opt3">
+					<input class="selectopt" name="test" type="radio" id="opt3"　onclick="w3.sortHTML('#photo-gallery', 'article')">
 					<label for="opt3" class="option">Title</label>
 				</div>
 			</div>
 
+			<button id="popularity">Popularity</button>
+				<button id="date" onclick="sortByDate(${ID})">Date</button>
+				<button id="likes" onclick="">likes</button>
 
-			<div class="photo-gallery">
+
+			<div id="photo-gallery">
 				${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
 			</div>
         `
 	}
 }
+
+
+// <div id="photo-gallery">
+// 				${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
+// 			</div>
+
+// let test = createMediaGroup(createMediaArrayOfPhotographer(82)).join("")
+// console.log(test);
+// function myFunction() {
+
+// 	let test = createMediaGroup(createMediaArrayOfPhotographer(82)).join("")
+// 	createMediaGroup(createMediaArrayOfPhotographer(82)).join("").sort(function(a, b){return new Date(a.media.date) - new Date(b.media.date)});
+// 	document.getElementById("photo-gallery").innerHTML = createMediaGroup(createMediaArrayOfPhotographer(82)).join("");
+//   }
 
 	// <article class="photographer">
 	// 	<div onclick="renderTestPage(${this.photographer.id})">

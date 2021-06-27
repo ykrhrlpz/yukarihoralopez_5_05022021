@@ -97,6 +97,7 @@ function createMediaArrayOfPhotographer(ID)
     mediaGroupByPhotographers.push(md)
     return mediaGroupByPhotographers[0]
 }
+
 // fucntion to sort gallery of a photographer by date
 function createMediaArrayOfPhotographerByDate(ID) 
 {
@@ -111,12 +112,40 @@ function createMediaArrayOfPhotographerByDate(ID)
     return mediaGroupByPhotographers[0]
 }
 
-function sortByDate(ID)
+
+//function to sort gallaery by title
+function compare_to_sort(x,y) 
+{
+    if (x.media.title < y.media.title)
+    return -1;
+
+    if (x.media.title > y.media.title)
+    return 1;
+    
+    return 0;
+}
+
+// fucntion to sort gallery of a photographer by title
+function createMediaArrayOfPhotographerByTitle(ID) 
+{
+    let mediaGroupByPhotographers = [];
+    md = MediaGalleryOfAllPhotographers.filter(media => media.media.photographerId === ID)
+    mediaGroupByPhotographers.push(md)
+     mediaGroupByPhotographers[0].sort(compare_to_sort)
+    return mediaGroupByPhotographers[0]
+}
+
+// function to insert sorted gallery to DOM 
+function showGallerySortedByDate(ID)
 {
     let content = createMediaGroup(createMediaArrayOfPhotographerByDate(ID)).join("")
-    // console.log(content);
     document.getElementById("photo-gallery").innerHTML = content
-
+}
+// function to insert sorted gallery to DOM 
+function showGallerySortedByTitle(ID)
+{
+    let content = createMediaGroup(createMediaArrayOfPhotographerByTitle(ID)).join("")
+    document.getElementById("photo-gallery").innerHTML = content
 }
 
 
@@ -163,6 +192,8 @@ array1.slice().sort(function(a,b){
     // to get a value that is either negative, positive, or zero.
     return new Date(a.media.date) - new Date(b.media.date)
 })
+const newArray1 = 
+array1.slice().sort(compare_to_sort)
 
 
 
@@ -177,7 +208,8 @@ array1.slice().sort(function(a,b){
 
 //   console.log(myFunction());
 console.log(array1);
-console.log(newArray);
+console.log(newArray1);
+// console.log(newArray);
 
 //  console.log(array1);
 

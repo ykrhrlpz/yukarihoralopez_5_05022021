@@ -53,8 +53,8 @@ class Photographer {
 			</div>
 
 			<button id="popularity">Popularity</button>
-				<button id="date" onclick="sortByDate(${ID})">Date</button>
-				<button id="likes" onclick="">likes</button>
+				<button id="date" onclick="showGallerySortedByDate(${ID})">Date</button>
+				<button id="title" onclick="showGallerySortedByTitle(${ID})">Title</button>
 
 
 			<div id="photo-gallery">

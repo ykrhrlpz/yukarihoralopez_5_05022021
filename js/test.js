@@ -121,7 +121,7 @@ function compare_to_sort(x,y)
 
     if (x.media.title > y.media.title)
     return 1;
-    
+
     return 0;
 }
 
@@ -135,16 +135,34 @@ function createMediaArrayOfPhotographerByTitle(ID)
     return mediaGroupByPhotographers[0]
 }
 
+// fucntion to sort gallery of a photographer by title
+function createMediaArrayOfPhotographerByPopularity(ID) 
+{
+    let mediaGroupByPhotographers = [];
+    md = MediaGalleryOfAllPhotographers.filter(media => media.media.photographerId === ID)
+    mediaGroupByPhotographers.push(md)
+     mediaGroupByPhotographers[0].sort((a, b) => b.media.likes - a.media.likes)
+    return mediaGroupByPhotographers[0]
+}
+
 // function to insert sorted gallery to DOM 
 function showGallerySortedByDate(ID)
 {
     let content = createMediaGroup(createMediaArrayOfPhotographerByDate(ID)).join("")
     document.getElementById("photo-gallery").innerHTML = content
 }
+
 // function to insert sorted gallery to DOM 
 function showGallerySortedByTitle(ID)
 {
     let content = createMediaGroup(createMediaArrayOfPhotographerByTitle(ID)).join("")
+    document.getElementById("photo-gallery").innerHTML = content
+}
+
+// function to insert sorted gallery to DOM 
+function showGallerySortedBypopularity(ID)
+{
+    let content = createMediaGroup(createMediaArrayOfPhotographerByPopularity(ID)).join("")
     document.getElementById("photo-gallery").innerHTML = content
 }
 
@@ -194,6 +212,8 @@ array1.slice().sort(function(a,b){
 })
 const newArray1 = 
 array1.slice().sort(compare_to_sort)
+const newArray2 = 
+array1.slice().sort((a, b) => b.media.likes - a.media.likes)
 
 
 
@@ -208,7 +228,8 @@ array1.slice().sort(compare_to_sort)
 
 //   console.log(myFunction());
 console.log(array1);
-console.log(newArray1);
+console.log(newArray2);
+// console.log(newArray1);
 // console.log(newArray);
 
 //  console.log(array1);

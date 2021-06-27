@@ -52,10 +52,10 @@ class Photographer {
 				</div>
 			</div>
 
-			<button id="popularity">Popularity</button>
+			<button id="popularity" onclick="showGallerySortedBypopularity(${ID})">Popularity</button>
 				<button id="date" onclick="showGallerySortedByDate(${ID})">Date</button>
 				<button id="title" onclick="showGallerySortedByTitle(${ID})">Title</button>
-
+				
 
 			<div id="photo-gallery">
 				${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}

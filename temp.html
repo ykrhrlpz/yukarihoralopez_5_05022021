@@ -8,17 +8,39 @@
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <style>
+     
+     input {
+    border: none;
+    background: transparent;
+    border-style:none;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+    </style>
 </head>
 <body>
-
- <!-- <video controls="controls" preload="metadata">
+    <!-- <button onclick="increment()">click me</button>
+    <p id=＞
+        <input id="input">18</input>
+    </p＞
+ <video controls="controls" preload="metadata">
                             <source src="./img/Mimi/Animals_Wild_Horses_in_the_mountains.mp4" type="video/mp4">
                         </video>
 
                         <video width="320" height="240" controls>
   <source src="./img/Mimi/Animals_Wild_Horses_in_the_mountains.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video>
+</video> -->
 
 <!-- A simple example -->
 <!-- <video src="./img/Mimi/Animals_Wild_Horses_in_the_mountains.mp4">
@@ -33,13 +55,66 @@
 
 <img class="header-profile-img" src="./img/Mimi/Portrait_Wednesday.jpg" width="320">  -->
 
-<i class="fas fa-heart"></i>
+<!-- <i class="fas fa-heart"></i> -->
    <!-- <p>Hello</p> -->
-<!-- 
-    <script src="./js/data.js"></script>
-    <script src="./js/homePageFunctions.js"></script>
-    <script src="./js/classes.js"></script>
-    <script src="./js/test.js"></script>
-  -->
+
+
+<!-- <div class="rating">
+    <input type="number" value="12">
+    <i id="add" class="fas fa-heart"></i>
+
+</div> -->
+
+<!-- Surround the select box within a "custom-select" DIV element.
+Remember to set the width: -->
+<div class="custom-select" style="width:200px;">
+    <select>
+      <option value="0">Select car:</option>
+      <option value="1">Audi</option>
+      <option value="2">BMW</option>
+      <option value="3">Citroen</option>
+      <option value="4">Ford</option>
+      <option value="5">Honda</option>
+      <option value="6">Jaguar</option>
+      <option value="7">Land Rover</option>
+      <option value="8">Mercedes</option>
+      <option value="9">Mini</option>
+      <option value="10">Nissan</option>
+      <option value="11">Toyota</option>
+      <option value="12">Volvo</option>
+    </select>
+  </div>
+
+<p id="number-likes">12</p>
+<i id="add" class="fas fa-heart"></i>
+<p id="total-like"></p>
+
+<!-- <button id="add">Add</button>
+<input type="number" value="0"> -->
+  <script>
+
+let btnAdd = document.querySelector("#add")
+// let p = document.querySelector("p")
+let numberLikes = document.querySelector("#number-likes")
+// let input = document.querySelector("input")
+
+btnAdd.addEventListener("click", () =>
+{
+    numberLikes.textContent = parseInt(numberLikes.textContent) + 1
+})
+
+document.addEventListener('DOMContentLoaded', function()
+{
+  document.getElementById("total-like").textContent = showSumOfLikes(getArrayOfLikes(createMediaArrayOfPhotographer(82)))
+})
+// document.getElementById("total-likes").textContent = result
+
+  </script>
+
+<script src="./js/data.js"></script>
+<script src="./js/homePageFunctions.js"></script>
+<script src="./js/classes.js"></script>
+<script src="./js/test.js"></script>
+
 </body> 
 </html>

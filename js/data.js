@@ -1,4 +1,4 @@
-const photographers = 
+let photographers = 
 [
     {
         "name": "Mimi Keel",
@@ -68,7 +68,7 @@ const photographers =
     }
 ]
 
-const media =  
+let media =  
 [
     {
         "id": 342550,

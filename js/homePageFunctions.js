@@ -1,3 +1,5 @@
+let carouselModelIsOpen = true
+
 class Photographer {
 	constructor(photographer) 
 	{
@@ -23,6 +25,7 @@ class Photographer {
 
 	showIndividualProfile(ID) 
 	{
+		createMediaArrayOfPhotographer(ID).map(item => item.media.image)
 		return `   
 			<div class="photographerHeader">
 				<div class="photographerHeaderLeft">
@@ -39,6 +42,7 @@ class Photographer {
 					<img class="header-profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="Thumnail image of ${this.photographer.name}">
 				</div>
 			</div>
+			
 			
 			
 			<div class="sort-by">
@@ -71,39 +75,68 @@ class Photographer {
 				<p>$${this.photographer.price}/day</p>
 			</div>
 
-			<script type="text/javascript">
-			Test()
+			<div class="carousel-modal">
+				<div class="modal-close-icon" onclick="(() => { document.getElementsByClassName('carousel-modal')[0].classList.toggle('opened', false); slide=0; moveCarouselTo(0)})()">
+					<i class="fas fa-times fa-2x"></i>
+				</div>
+				<div class="carousel-wrapper">
+					<div class="carousel">
+				
+					${
+						createMediaArrayOfPhotographer(ID).map((item, index) => 
+						{
 
+							if (item.media.video)
+							return `<video class="carousel__photo ${index == 0 ? 'initial' : null}" controls="controls" preload="metadata" poster="./img/PhotographersIDPhotos/${getPhotographerFullNameById(ID)}.jpg">
+										<source src="./img/${getPhotographerNameById(ID)}/${item.media.video}" type="video/mp4">
+										Sorry, your browser doesn't support embedded videos.
+									</video>`
+							else 
+							return `<img class="carousel__photo ${index == 0 ? 'initial' : null}" src="./img/${getPhotographerNameById(ID)}/${item.media.image}">`
+						}).join("")
+					}
+					
+					<div class="carousel__button--next"><i class="fas fa-angle-right fa-2x carousel-icon"></i></div>
+					<div class="carousel__button--prev"><i class="fas fa-angle-left fa-2x carousel-icon"></i></div>
+					
+					</div>
+				</div>
+			</div>
+			`
+		}
 
-
-			</script>
-        `
 	}
-}
 
+	
+	
+	//   <img class="carousel__photo initial" src="./img/Mimi/Travel_Lonesome.jpg">
+	//   <img class="carousel__photo" src="./img/Mimi/Event_BenevidesWedding.jpg">
+	//   <img class="carousel__photo" src="./img/Mimi/Event_PintoWedding.jpg">
+	//   <img class="carousel__photo" src="./img/Mimi/Portrait_Nora.jpg">
+	//   <img class="carousel__photo" src="./img/Mimi/Portrait_Wednesday.jpg">
 
 
 function GallerySortedByCategory(id)
 {
 	let selectboxvalue = document.getElementById("selectbox");
 	let value = selectboxvalue.options[selectboxvalue.selectedIndex].value;
-	console.log(value)
+	// console.log(value)
 	switch(value)
 	{
 		case "popularity":
 
 			showGallerySortedBypopularity(id)
-			console.log(value)
+			// console.log(value)
 			break;
 
 		case "date":
 			showGallerySortedByDate(id) 
-			console.log(value)
+			// console.log(value)
 			break;
 
 		case "title":
 			showGallerySortedByTitle(id) 
-			console.log(value)
+			// console.log(value)
 			break;
 		default:
 			createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")

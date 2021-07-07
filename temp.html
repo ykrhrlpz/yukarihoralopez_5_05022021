@@ -9,26 +9,72 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <style>
-     
+
+      *{
+        padding: 0;
+        margin: 0;
+      }
+      main
+      {
+        width: 100%;
+        height: 700px;
+        margin: 10px auto;
+        overflow: hidden;
+        position: relative;
+      }
+      span
+      {
+        position: absolute;
+        top: 40%;
+        font-size: 60px;
+        background: pink;
+        font-weight: bold;
+        color: purple;
+        cursor: pointer;
+        left: .5%;
+        z-index: 1;
+      }
+      span:nth-child(2)
+      {
+        left: 98%;
+        text-align: right;
+      }
+/*      
      input {
     border: none;
     background: transparent;
     border-style:none;
 }
 /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
+} */
 
 /* Firefox */
-input[type=number] {
+/* input[type=number] {
   -moz-appearance: textfield;
-}
+}  */
     </style>
 </head>
 <body>
+
+<main>
+  <span>&#139;</span>
+  <span>&#155;</span>
+  <section>
+    <div class="active">01</div>
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+    <div>05</div>
+    <div>06</div>
+  </section>
+</main>
+
+
     <!-- <button onclick="increment()">click me</button>
     <p id=＞
         <input id="input">18</input>
@@ -67,7 +113,7 @@ input[type=number] {
 
 <!-- Surround the select box within a "custom-select" DIV element.
 Remember to set the width: -->
-<div class="custom-select" style="width:200px;">
+<!-- <div class="custom-select" style="width:200px;">
     <select>
       <option value="0">Select car:</option>
       <option value="1">Audi</option>
@@ -87,7 +133,7 @@ Remember to set the width: -->
 
 <p id="number-likes">12</p>
 <i id="add" class="fas fa-heart"></i>
-<p id="total-like"></p>
+<p id="total-like"></p> -->
 
 <!-- <button id="add">Add</button>
 <input type="number" value="0"> -->

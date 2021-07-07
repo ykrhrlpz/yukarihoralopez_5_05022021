@@ -1,5 +1,3 @@
-
-
 function showTestPageHeader()
 {
   document.getElementById("body").innerHTML = 
@@ -29,7 +27,7 @@ function showTestPageHeader()
         </svg>
     </a>
     </header>
-    <main id="testphotographers"></main>
+    <main id="photographer-indivisual-main"></main>
   `
 }
 
@@ -60,7 +58,7 @@ class Media
                         <p>${this.media.title}</p>
                         <div class="rating">
                             <p id="number-likes-${this.media.id}">${this.media.likes}</p>
-                            <i id="add-${this.media.id}" class="fas fa-heart aria-hidden=true"></i>
+                            <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
                         </div>
                     </div>
                 </article>
@@ -71,40 +69,23 @@ class Media
         return `
             <article class="image-item">
              
-                
-                <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}"/>
+                <div onclick="(() => { document.getElementsByClassName('carousel-modal')[0].classList.toggle('opened', true)})()">
+                    <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}"/>
+                </div>
                 <div class="img-title">
                     <p>${this.media.title}</p>
                     <div class="rating">
                         <p id="number-likes-${this.media.id}">${this.media.likes}</p>
-                        <i id="add-${this.media.id}" class="fas fa-heart aria-hidden=true"></i>
+                        <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
                     </div>
                 </div>
-            </article>
-            
-           
-            
+            </article> 
         `   
-        
-      
     }
     getLikes()
     {
         return this.media.likes
     }
-    incrementLikes()
-    {
-    
-       
-        return this.media.likes + 1
-     
-    }
-    setlikes(likes)
-    {
-        this.getLikes() = likes
-    }
-
-   
 }
 
 
@@ -121,7 +102,7 @@ for (let item of media)
 //Function to create an array of media group
 function createMediaGroup (array)
 {
-    return array.map(media => media.createGallery())
+    return array.map((media, index) => media.createGallery(index))
 }
 
 // /make an array of all the media from a photographer
@@ -211,7 +192,7 @@ function showGallerySortedBypopularity(ID)
 //function to show the main secton of each photographer page
 function showPhotographerMainSection(array, id)
 {
-    document.getElementById("testphotographers").innerHTML = array.find(photographer => photographer.photographer.id === id).showIndividualProfile(id);
+    document.getElementById("photographer-indivisual-main").innerHTML = array.find(photographer => photographer.photographer.id === id).showIndividualProfile(id);
 }
 
 //function to get photographer name from their ID
@@ -231,6 +212,7 @@ function getPhotographerFullNameById(ID)
     photographerName.push(photographer)
     return photographerName[0][0].photographer.name.split(' ').join('').replace('-', '')
 }
+
 // Create an array of likes from photographer gallery
 function getArrayOfLikes(array)
 {
@@ -260,6 +242,10 @@ function renderPhotographerIndividualPage(id)
 
     showTestPageHeader();
     showPhotographerMainSection(photographersGroup, id)
+
+    
+
+    initCarousel();
 
     createMediaArrayOfPhotographer(id).forEach(item =>
     {

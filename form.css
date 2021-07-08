@@ -31,9 +31,9 @@
 
 .content 
 {
-  margin: 20% auto;
+  margin: 5% auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #DB8876;
@@ -117,7 +117,7 @@ textarea.text-control:focus
 .close:after 
 {
   position: absolute;
-  left: 2px;
+  left: -22px;
   content: " ";
   height: 55px;
   width: 7px;

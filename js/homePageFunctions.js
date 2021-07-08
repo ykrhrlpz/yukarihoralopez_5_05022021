@@ -37,13 +37,75 @@ class Photographer {
 						</div>
 				</div>
 		
-				<button class="contact-button">Contact me</button>
+				<button class="contact-button modal-btn"">Contact me</button>
 				<div class="header-profile-img-container">
 					<img class="header-profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="Thumnail image of ${this.photographer.name}">
 				</div>
 			</div>
 			
-			
+			<div class="bground">
+			<div class="content">
+			  <span class="close"></span>
+			  <div class="modal-body">
+		
+				<p class="modal-body-title">Contact me</p>
+				<p class="modal-body-title">${this.photographer.name}</p>
+				<form
+				  id="contact-form"
+				  name="reserve"
+				  action="index.html"
+				  method="get"
+				>
+				  <div class="formData">
+					<label for="formData-first">First Name</label><br>
+					<input
+					  class="text-control"
+					  type="text"
+					  id="formData-first"
+					  name="first"
+					/><br>
+				  </div>
+		
+				  <div class="formData">
+					<label for="formData-last">Last Name</label><br>
+					<input
+					  class="text-control"
+					  type="text"
+					  id="formData-last"
+					  name="last"
+					/><br>
+				  </div>
+		
+				  <div class="formData">
+					<label for="formData-email">Email</label><br>
+					<input
+					  class="text-control"
+					  type="email"
+					  id="formData-email"
+					  name="email"
+					/><br>
+				  </div>
+		
+				  <div class="formData">
+					<label for="formData-message">Your message</label><br>
+					<textarea
+						class="text-control textarea-text"
+						type="email"
+						id="formData-message"
+						name="message"
+					></textarea>
+		
+				  </div>
+				  <button
+					class="btn-submit button"
+					type="submit"
+					>
+					Send
+				  </button>
+				</form>
+			  </div>
+			</div>
+		  </div>
 			
 			<div class="sort-by">
 				<p>Order by</p>
@@ -106,14 +168,6 @@ class Photographer {
 		}
 
 	}
-
-	
-	
-	//   <img class="carousel__photo initial" src="./img/Mimi/Travel_Lonesome.jpg">
-	//   <img class="carousel__photo" src="./img/Mimi/Event_BenevidesWedding.jpg">
-	//   <img class="carousel__photo" src="./img/Mimi/Event_PintoWedding.jpg">
-	//   <img class="carousel__photo" src="./img/Mimi/Portrait_Nora.jpg">
-	//   <img class="carousel__photo" src="./img/Mimi/Portrait_Wednesday.jpg">
 
 
 function GallerySortedByCategory(id)
@@ -243,13 +297,6 @@ function waitDOMElement()
 		})
 	})
 }
-
-
-function Hello()
-{
-    console.log("Hello");
-}
-
 
 // Function to render Home page
 function renderHomePage() 

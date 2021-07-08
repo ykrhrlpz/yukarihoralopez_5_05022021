@@ -258,4 +258,48 @@ function renderPhotographerIndividualPage(id)
     })
 
     showTotalLikes(id)
+
+    // Contact Modal Starts here/////////////////////////////////////
+    let modalbg = document.querySelector(".bground");
+    let modalBtn = document.querySelectorAll(".modal-btn");
+    let form = document.getElementById("contact-form");
+    let closeIcon = document.querySelector(".close");
+
+    ////////// Form inputs
+    let formDataFirstName = document.getElementById("formData-first")
+    let formDataLastName = document.getElementById("formData-last")
+    let formDataEmail = document.getElementById("formData-email")
+    let formDataMessage = document.getElementById("formData-message")
+
+    function launchModal()
+    {
+        modalbg.style.display = "block";
+    }
+
+    function closeModal()
+    {
+        modalbg.style.display = "none";
+    }
+
+    function outputForValue()
+    {
+        console.log("Name:", formDataFirstName.value + " " + formDataLastName.value);
+        console.log("Email:", formDataEmail.value);
+        console.log("Message:", formDataMessage.value);
+    }
+
+    ////////// launch modal event
+    modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+    closeIcon.addEventListener("click", () => 
+    {
+        closeModal();
+    });
+
+    form.addEventListener("submit", event => 
+    {
+        event.preventDefault();
+        outputForValue()
+    })
+    // Contact Modal Ends here//////////////////////////////////////////////////////////
 }   

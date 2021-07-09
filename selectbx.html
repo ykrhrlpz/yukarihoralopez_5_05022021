@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+        *, *::after, *::before
+        {
+            box-sizing: border-box;
+        }
+
+        .custom-selector
+        {
+            position: relative;
+            display: inline-block;
+            font-size: 14px;
+            color: #888;
+        }
+        .custom-selector select
+        {
+            width: 200px;
+            min-height: 35px;
+            background: #cbe7ff;
+            border-radius: 3px;
+            border: 2px solid #2196f3;
+            /* outline: none; */
+            padding: 0 10px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 5px;
+
+            /* remove native icon on the right */
+            appearance: none;
+        }
+
+
+        /* icon */
+        .custom-selector::after
+        {
+            content: '';
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent;
+            border-top-color: #222;
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            border-radius: 2px;
+
+        }
+
+        .custom-selector .selector-options
+        {
+            list-style: none;
+            padding: 5px 0;
+            margin: 0;
+            background: #11436b;
+            border-radius: 4px;
+            z-index: 1;
+            width: 96%;
+            position: absolute;
+            left: 2%;
+            top: 35%;
+        }
+
+        .custom-selector .selector-options li
+        {
+            height: 35px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            cursor: pointer;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        .custom-selector .selector-options li:hover 
+        {
+            background: #03a9f4;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <label class="custom-selector">
+        Select from number options
+        <select name="sample">
+            <option value="1">one</option>
+            <option value="2">two</option>
+            <option value="3">three</option>
+        </select>
+    </label>
+
+    <script>
+        const selector = document.querySelector(".custom-selector")
+        selector.addEventListener("change", e => {
+            console.log("changed", e.target.value);
+        })
+
+        selector.addEventListener("mousedown", e => {
+            e.preventDefault();
+
+            const select = selector.children[0];
+            const dropDown = document.createElement("ul");
+            dropDown.className = "selector-options";
+
+            [...select.children].forEach(option => {
+
+                const dropDownOption = document.createElement("li");
+                dropDownOption.textContent =  option.textContent;
+
+                dropDownOption.addEventListener("mousedown", e => {
+                    e.stopPropagation();
+                    select.value = option.value
+                    selector.value = option.value
+                    select.dispatchEvent(new Event("change"))
+                    selector.dispatchEvent(new Event("change"))
+                    dropDown.remove();
+                })
+
+                dropDown.appendChild(dropDownOption)
+            });
+
+            selector.appendChild(dropDown);
+
+            // handle click out
+            document.addEventListener("click", e => {
+                if(!selector.contains(e.target)){
+                    dropDown.remove();
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>

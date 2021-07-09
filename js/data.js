@@ -9,7 +9,7 @@ let photographers =
         "tagline": "Voir le beau dans le quotidien",
         "price": 400,
         "portrait": "MimiKeel.jpg",
-        "alt-description": "thumbnail image of Mimi Keel"
+        "altDescription": "thumbnail image of Mimi Keel"
     },
     {
         "name": "Ellie-Rose Wilkens",
@@ -20,7 +20,7 @@ let photographers =
         "tagline": "Capturer des compositions complexes",
         "price": 250,
         "portrait": "EllieRoseWilkens.jpg",
-        "alt-description": "thumbnail image of Ellie-Rose Wilkens"
+        "altDescription": "thumbnail of Ellie-Rose Wilkens"
     },
     {
         "name": "Tracy Galindo",
@@ -31,7 +31,7 @@ let photographers =
         "tagline": "Photographe freelance",
         "price": 500,
         "portrait": "TracyGalindo.jpg",
-        "alt-description": "thumbnail image of Tracy Galindo"
+        "altDescription": "thumbnail of Tracy Galindo"
     },
     {
         "name": "Nabeel Bradford",
@@ -42,7 +42,7 @@ let photographers =
         "tagline": "Toujours aller de l'avant",
         "price": 350,
         "portrait": "NabeelBradford.jpg",
-        "alt-description": "thumbnail image of Nabeel Bradford"
+        "altDescription": "thumbnail of Nabeel Bradford"
     },
     {
         "name": "Rhode Dubois",
@@ -53,7 +53,7 @@ let photographers =
         "tagline": "Je crée des souvenirs",
         "price": 275,
         "portrait": "RhodeDubois.jpg",
-        "alt-description": "thumbnail image of Rhode Dubois"
+        "altDescription": "thumbnail Rhode Dubois"
     },
     {
         "name": "Marcel Nikolic",
@@ -64,7 +64,7 @@ let photographers =
         "tagline": "Toujours à la recherche de LA photo",
         "price": 300,
         "portrait": "MarcelNikolic.jpg",
-        "alt-description": "thumbnail image of Marcel Nikolic"
+        "altDescription": "thumbnail Marcel Nikolic"
     }
 ]
 
@@ -79,7 +79,7 @@ let media =
         "likes": 62,
         "date": "2011-12-08",
         "price": 55,
-        "alt-description": "a young beautiful lady in yellow is standing on the beach"
+        "altDescription": "a young beautiful lady in yellow is standing on the beach"
     },
     {
         "id": 8520927,
@@ -90,7 +90,7 @@ let media =
         "likes": 11,
         "date": "2011-11-06",
         "price": 55,
-        "alt-description": "a blonde lady is in the middle of the street in the urban city."
+        "altDescription": "a blonde lady is in the middle of the street in the urban city."
     },
     {
         "id": 9025895,
@@ -101,7 +101,7 @@ let media =
         "likes": 72,
         "date": "2013-08-12",
         "price": 55,
-        "alt-description": "a blonde lady is in the middle of the street in the urban city"
+        "altDescription": "a lady with black hair is posing with a stripe pattern cloth, a yellow skirf and a red bag."
     },
     {
         "id": 9275938,
@@ -112,7 +112,7 @@ let media =
         "likes": 69,
         "date": "2018-02-22",
         "price": 55,
-        "alt-description": "a nicely decorated wedding venue with flowers without attendees"
+        "altDescription": "a nicely decorated wedding venue with flowers without attendees"
     },
     {
         "id": 2053494,
@@ -123,7 +123,7 @@ let media =
         "likes": 2,
         "date": "2020-05-25",
         "price": 55,
-        "alt-description": "the back views of a couple looking at sparkles which others are holding in their hands"
+        "altDescription": "the back views of a couple looking at sparkles which others are holding in their hands"
     },
     {
         "id": 7324238,
@@ -134,7 +134,7 @@ let media =
         "likes": 33,
         "date": "2019-06-12",
         "price": 55,
-        "alt-description": "a party venue for someone's 18th birthday"
+        "altDescription": "a party venue for someone's 18th birthday"
     },
     {
         "id": 8328953,
@@ -155,7 +155,7 @@ let media =
         "likes": 88,
         "date": "2007-05-07",
         "price": 55,
-        "alt-description": "an art paiting of a man with triangle shape"
+        "altDescription": "an art paiting of a man with triangle shape"
     },
     {
         "id": 8523492,
@@ -166,7 +166,7 @@ let media =
         "likes": 24,
         "date": "2018-05-05",
         "price": 55,
-        "alt-description": "a tunnel with purple light"
+        "altDescription": "a tunnel with purple light"
     },
     {
         "id": 75902334,
@@ -177,7 +177,7 @@ let media =
         "likes": 75,
         "date": "2019-11-25",
         "price": 55,
-        "alt-description": "a bunch of red bird and blue bird"
+        "altDescription": "a bunch of red bird and blue bird"
     },
 
     {
@@ -189,7 +189,7 @@ let media =
         "likes": 52,
         "date": "2013-02-30",
         "price": 70,
-        "alt-description": "people are on the vessel with oars"
+        "altDescription": "people are on the vessel with oars"
     },
     {
         "id": 92758372,
@@ -200,7 +200,7 @@ let media =
         "likes": 58,
         "date": "2018-07-17",
         "price": 70,
-        "alt-description": "a man and a woman are raising one hand with their eyes closed"
+        "altDescription": "a man and a woman are raising one hand with their eyes closed"
     },
     {
         "id": 32958383,
@@ -211,7 +211,7 @@ let media =
         "likes": 11,
         "date": "2019-08-12",
         "price": 70,
-        "alt-description": "a black woman in a red dress is standing on the stairs "
+        "altDescription": "a black woman in a red dress is standing on the stairs "
     },
     {
         "id": 928587383,
@@ -222,7 +222,7 @@ let media =
         "likes": 2,
         "date": "2019-01-02",
         "price": 70,
-        "alt-description": "people are having a meeting in the office"
+        "altDescription": "people are having a meeting in the office"
     },
     {
         "id": 725639493,
@@ -233,7 +233,7 @@ let media =
         "likes": 3,
         "date": "2019-05-20",
         "price": 70,
-        "alt-description": "a man is doing a presentaion in front of the audience"
+        "altDescription": "a man is doing a presentaion in front of the audience"
     },
     {
         "id": 23394384,
@@ -244,7 +244,7 @@ let media =
         "likes": 52,
         "date": "2019-07-18",
         "price": 70,
-        "alt-description": "a man is checking the keyboard of a Musical instrument"
+        "altDescription": "a man is checking the keyboard of a Musical instrument"
     },
     {
         "id": 87367293,
@@ -255,7 +255,7 @@ let media =
         "likes": 23,
         "date": "2018-02-22",
         "price": 70,
-        "alt-description": "a female singer is singing on the stage"
+        "altDescription": "a female singer is singing on the stage"
     },
     {
         "id": 593834784,
@@ -266,7 +266,7 @@ let media =
         "likes": 52,
         "date": "2017-03-13",
         "price": 70,
-        "alt-description": "a wild large‐horned deer"
+        "altDescription": "a wild large‐horned deer"
     },
     {
         "id": 83958935,
@@ -298,7 +298,7 @@ let media =
         "likes": 101,
         "date": "2017-04-03",
         "price": 45,
-        "alt-description": "people are enjoying their time on the hot spring"
+        "altDescription": "people are enjoying their time on the hot spring"
     },
     {
         "id": 73434243,
@@ -309,7 +309,7 @@ let media =
         "likes": 99,
         "date": "2018-04-30",
         "price": 45,
-        "alt-description": "a lomg mountain road without any cars or people"
+        "altDescription": "a lomg mountain road without any cars or people"
     },
     {
         "id": 23425523,
@@ -320,7 +320,7 @@ let media =
         "likes": 34,
         "date": "2016-04-05",
         "price": 45,
-        "alt-description": "a bridge leads to the forest"
+        "altDescription": "a bridge leads to the forest"
     },
     {
         "id": 23134513,
@@ -331,7 +331,7 @@ let media =
         "likes": 23,
         "date": "2017-03-18",
         "price": 45,
-        "alt-description": "a boat is inside the breathtaking view of mountains and river"
+        "altDescription": "a boat is inside the breathtaking view of mountains and river"
     },
     {
         "id": 92352352,
@@ -342,7 +342,7 @@ let media =
         "likes": 66,
         "date": "2018-05-24",
         "price": 45,
-        "alt-description": "portrait of a red hair lady smiling"
+        "altDescription": "portrait of a red hair lady smiling"
     },
     {
         "id": 34513453,
@@ -353,7 +353,7 @@ let media =
         "likes": 52,
         "date": "2017-04-21",
         "price": 45,
-        "alt-description": "monochrome portrait of a man"
+        "altDescription": "monochrome portrait of a man"
     },
     {
         "id": 23523533,
@@ -364,7 +364,7 @@ let media =
         "likes": 95,
         "date": "2018-11-02",
         "price": 45,
-        "alt-description": "monochrome portrait of a black woman with short hair "
+        "altDescription": "monochrome portrait of a black woman with short hair "
     },
     {
         "id": 525834234,
@@ -375,7 +375,7 @@ let media =
         "likes": 25,
         "date": "2019-01-02",
         "price": 45,
-        "alt-description": "monochrome portrait of a black woman with short hair "
+        "altDescription": "monochrome portrait of a black woman with short hair "
     },
 
     {
@@ -387,7 +387,7 @@ let media =
         "likes": 88,
         "date": "2019-02-03",
         "price": 45,
-        "alt-description": "a lady is in the middle of mountains"
+        "altDescription": "a lady is in the middle of mountains"
     },
     {
         "id": 625025343,
@@ -398,7 +398,7 @@ let media =
         "likes": 85,
         "date": "2019-04-03",
         "price": 45,
-        "alt-description": "a bunch of colorful buildings near a cliff"
+        "altDescription": "a bunch of colorful buildings near a cliff"
     },
     {
         "id": 2525345343,
@@ -409,7 +409,7 @@ let media =
         "likes": 34,
         "date": "2019-04-07",
         "price": 45,
-        "alt-description": "a portrait of a little girl having a funny face"
+        "altDescription": "a portrait of a little girl having a funny face"
     },
     {
         "id": 2523434634,
@@ -420,7 +420,7 @@ let media =
         "likes": 63,
         "date": "2019-04-07",
         "price": 45,
-        "alt-description": "a portrait of a black girl with glasses"
+        "altDescription": "a portrait of a black girl with glasses"
     },
     {
         "id": 398847109,
@@ -431,7 +431,7 @@ let media =
         "likes": 55,
         "date": "2019-06-20",
         "price": 45,
-        "alt-description": "a monochrome portrait of a woman"
+        "altDescription": "a monochrome portrait of a woman"
     },
     {
         "id": 2534342,
@@ -442,7 +442,7 @@ let media =
         "likes": 25,
         "date": "2019-06-21",
         "price": 45,
-        "alt-description": "a seaside wedding venue"
+        "altDescription": "a seaside wedding venue"
     },
     {
         "id": 65235234,
@@ -453,7 +453,7 @@ let media =
         "likes": 52,
         "date": "2019-06-25",
         "price": 45,
-        "alt-description": "a bridal couple are gazing at each other under the sunshine"
+        "altDescription": "a bridal couple are gazing at each other under the sunshine"
     },
     {
         "id": 23523434,
@@ -464,7 +464,7 @@ let media =
         "likes": 77,
         "date": "2019-06-28",
         "price": 45,
-        "alt-description": "a bridal couple are gazing at each other at a wedding venue"
+        "altDescription": "a bridal couple are gazing at each other at a wedding venue"
     },
     {
         "id": 5234343,
@@ -485,7 +485,7 @@ let media =
         "likes": 59,
         "date": "2019-07-02",
         "price": 60,
-        "alt-description": "a colorful bird is sitting on a branch"
+        "altDescription": "a colorful bird is sitting on a branch"
     },
 
     {
@@ -497,7 +497,7 @@ let media =
         "likes": 25,
         "date": "2019-04-03",
         "price": 60,
-        "alt-description": "two lady are wearing Japanese traditional outfits and stading on the street in Kyoto"
+        "altDescription": "two lady are wearing Japanese traditional outfits and stading on the street in Kyoto"
     },
     {
         "id": 2523434,
@@ -508,7 +508,7 @@ let media =
         "likes": 53,
         "date": "2019-05-06",
         "price": 60,
-        "alt-description": "a scenery of a canal at sunset"
+        "altDescription": "a scenery of a canal at sunset"
     },
     {
         "id": 95293534,
@@ -519,7 +519,7 @@ let media =
         "likes": 33,
         "date": "2019-05-12",
         "price": 60,
-        "alt-description": "a scenery of mountains and a lake"
+        "altDescription": "a scenery of mountains and a lake"
     },
     {
         "id": 356234343,
@@ -530,7 +530,7 @@ let media =
         "likes": 53,
         "date": "2019-06-20",
         "price": 60,
-        "alt-description": "a nice building and a bicycle in a city"
+        "altDescription": "a nice building and a bicycle in a city"
     },
     {
         "id": 235234343,
@@ -541,7 +541,7 @@ let media =
         "likes": 63,
         "date": "2019-06-26",
         "price": 60,
-        "alt-description": "a door of a traditional building in India"
+        "altDescription": "a door of a traditional building in India"
     },
     {
         "id": 6234234343,
@@ -552,7 +552,7 @@ let media =
         "likes": 52,
         "date": "2019-06-30",
         "price": 60,
-        "alt-description": "a historical structures with blue sky"
+        "altDescription": "a historical structures with blue sky"
     },
     {
         "id": 6525666253,
@@ -563,7 +563,7 @@ let media =
         "likes": 63,
         "date": "2019-07-20",
         "price": 60,
-        "alt-description": "a collection of white color buildings in the middle of mountains"
+        "altDescription": "a collection of white color buildings in the middle of mountains"
     },
     {
         "id": 98252523433,
@@ -574,7 +574,7 @@ let media =
         "likes": 88,
         "date": "2020-01-05",
         "price": 60,
-        "alt-description": "a leaning tower"
+        "altDescription": "a leaning tower"
     },
     {
         "id": 9259398453,
@@ -595,7 +595,7 @@ let media =
         "likes": 54,
         "date": "2020-05-05",
         "price": 60,
-        "alt-description": "a corner of a beautiful building"
+        "altDescription": "a corner of a beautiful building"
     },
 
     {
@@ -617,7 +617,7 @@ let media =
         "likes": 101,
         "date": "2018-03-05",
         "price": 65,
-        "alt-description": "a lady doing rock climing"
+        "altDescription": "a lady doing rock climing"
     },
     {
         "id": 235343222,
@@ -628,7 +628,7 @@ let media =
         "likes": 103,
         "date": "2018-03-10",
         "price": 70,
-        "alt-description": "a person is surfing"
+        "altDescription": "a person is surfing"
     },
     {
         "id": 7775342343,
@@ -639,7 +639,7 @@ let media =
         "likes": 77,
         "date": "2018-04-16",
         "price": 50,
-        "alt-description": "a person is skiing"
+        "altDescription": "a person is skiing"
     },
     {
         "id": 9253445784,
@@ -650,7 +650,7 @@ let media =
         "likes": 88,
         "date": "2018-04-22",
         "price": 65,
-        "alt-description": "Sprint running races of women"
+        "altDescription": "Sprint running races of women"
     },
     {
         "id": 22299394,
@@ -661,7 +661,7 @@ let media =
         "likes": 95,
         "date": "2018-04-27",
         "price": 70,
-        "alt-description": "a guy is jumping from a skateboard"
+        "altDescription": "a guy is jumping from a skateboard"
     },
     {
         "id": 3452342633,
@@ -672,7 +672,7 @@ let media =
         "likes": 52,
         "date": "2018-05-03",
         "price": 75,
-        "alt-description": "inside a modern white color building"
+        "altDescription": "inside a modern white color building"
     },
     {
         "id": 939234243,
@@ -683,7 +683,7 @@ let media =
         "likes": 55,
         "date": "2018-05-10",
         "price": 72,
-        "alt-description": "a modern architecture with water"
+        "altDescription": "a modern architecture with water"
     },
     {
         "id": 222959233,
@@ -694,7 +694,7 @@ let media =
         "likes": 85,
         "date": "2018-05-15",
         "price": 71,
-        "alt-description": "a monochrome architecture"
+        "altDescription": "a monochrome architecture"
     },
     {
         "id": 965933434,
@@ -705,7 +705,7 @@ let media =
         "likes": 66,
         "date": "2018-05-20",
         "price": 58,
-        "alt-description": "a modern architecture with white and yellow glass"
+        "altDescription": "a modern architecture with white and yellow glass"
     },
     {
         "id": 777723343,
@@ -716,6 +716,6 @@ let media =
         "likes": 79,
         "date": "2018-05-21",
         "price": 80,
-        "alt-description": "a connected part of two modern buildings"
+        "altDescription": "a connected part of two modern buildings"
     }
     ]

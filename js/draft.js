@@ -180,6 +180,15 @@
 // })
 
 
+// <div class="sort-by">
+//     <p>Order by</p>
+    
+//     <button id="popularity" onclick="showGallerySortedBypopularity(${ID})">Popularity</button>
+//     <button id="date" onclick="showGallerySortedByDate(${ID})">Date</button>
+//     <button id="title" onclick="showGallerySortedByTitle(${ID})">Title</button>
+// </div>
+
+
 
 
 // Test.js

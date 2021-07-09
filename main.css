@@ -17,8 +17,9 @@ header
   {
     width: 100%;
     justify-content: space-between;
-    margin-right: 10px;
-    margin-left: 10px;
+    /* margin-right: 10px;
+    margin-left: 10px; */
+    margin-top: 25px;
   }
 
   .homepage-header a
@@ -27,15 +28,21 @@ header
     width: 30%;
     
   }
-  .homepage-header img
+  .homepage-header img,
+  #header-photographer img
   {
-    width: 100px;
+    width: 125px;
+    margin-left: 10px;
     
   }
 
   .homepage-header nav
   {
     order: 3;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
   }
 
   .homepage-header h1
@@ -48,10 +55,10 @@ header
   }
 }
 
-header img
+/* header img
 {
     width: 200px;
-}
+} */
 
 nav
 {
@@ -202,30 +209,14 @@ header h1
     margin-right: 3px;
 }
 
-/* photographer.html */
-
 #header-photographer 
 {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    margin: 0 auto;
     width: 90%;
     padding-top: 25px;
     padding-bottom: 25px;
-}
-
-@media screen and (max-width: 700px) 
-{
-  #header-photographer a
-  { 
-    width: 30%;
-  }
-  #header-photographer img
-  {
-    width: 100px;
-    
-  }
 }
 
 .photographerHeader

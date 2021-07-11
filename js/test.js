@@ -50,7 +50,7 @@ class Media
             <article class="image-item">
              
                 <div onclick="(() => { document.getElementsByClassName('carousel-modal')[0].classList.toggle('opened', true)})()">
-                    <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}" alt="${this.media.altDescription}"/>
+                    <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}" alt="${this.media.altDescription}" tabindex="0"/>
                 </div>
                 <div class="img-title">
                     <p>${this.media.title}</p>
@@ -243,12 +243,13 @@ function renderPhotographerIndividualPage(id)
     showTotalLikes(id)
 
     // Contact Modal Starts here/////////////////////////////////////
+
     let modalbg = document.querySelector(".bground");
     let modalBtn = document.querySelectorAll(".modal-btn");
     let form = document.getElementById("contact-form");
     let closeIcon = document.querySelector(".close");
 
-    ////////// Form inputs
+        ////////// Form inputs
     let formDataFirstName = document.getElementById("formData-first")
     let formDataLastName = document.getElementById("formData-last")
     let formDataEmail = document.getElementById("formData-email")
@@ -271,7 +272,7 @@ function renderPhotographerIndividualPage(id)
         console.log("Message:", formDataMessage.value);
     }
 
-    ////////// launch modal event
+        ////////// launch modal event
     modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
     closeIcon.addEventListener("click", () => 
@@ -286,29 +287,72 @@ function renderPhotographerIndividualPage(id)
     })
     // Contact Modal Ends here//////////////////////////////////////////////////////////
 
-
     // Sort image gallery by selecting selectbox
-    // document.getElementById("selectbox").addEventListener("change", () => 
-    // {
-    //     let selectboxvalue = document.getElementById("selectbox");
-    //     let value = selectboxvalue.options[selectboxvalue.selectedIndex].value;
-    //     switch(value)
-    //     {
-    //         case "popularity":
-    //             showGallerySortedBypopularity(id)
-    //             break;
+    document.getElementById("selectbox").addEventListener("change", () => 
+    {
+        let selectboxvalue = document.getElementById("selectbox");
+        let value = selectboxvalue.options[selectboxvalue.selectedIndex].value;
+        switch(value)
+        {
+            case "popularity":
+                showGallerySortedBypopularity(id)
+     
+                break;
 
-    //         case "date":
-    //             showGallerySortedByDate(id) 
-    //             break;
+            case "date":
+                showGallerySortedByDate(id) 
 
-    //         case "title":
-    //             showGallerySortedByTitle(id) 
+                break;
+
+            case "title":
+                showGallerySortedByTitle(id) 
     
-    //             break;
-    //         default:
-    //             createMediaGroup(createMediaArrayOfPhotographer(id)).join("")
+                break;
+            default:
+                createMediaGroup(createMediaArrayOfPhotographer(id)).join("")
+  
 
-    //     }
+        }
+    })
+
+
+    /////Style Selectbox
+    const selector = document.querySelector(".custom-selector")
+    // selector.addEventListener("change", e => {
+    // 	console.log("changed", e.target.value);
     // })
+
+    selector.addEventListener("mousedown", e => {
+        e.preventDefault();
+
+        const select = selector.children[0];
+        const dropDown = document.createElement("ul");
+        dropDown.className = "selector-options";
+
+        [...select.children].forEach(option => {
+
+            const dropDownOption = document.createElement("li");
+            dropDownOption.textContent =  option.textContent;
+
+            dropDownOption.addEventListener("mousedown", e => {
+                e.stopPropagation();
+                select.value = option.value
+                selector.value = option.value
+                select.dispatchEvent(new Event("change"))
+                selector.dispatchEvent(new Event("change"))
+                dropDown.remove();
+            })
+
+            dropDown.appendChild(dropDownOption)
+        });
+
+        selector.appendChild(dropDown);
+
+        // handle click out
+        document.addEventListener("click", e => {
+            if(!selector.contains(e.target)){
+                dropDown.remove();
+            }
+        })
+    })
 }   

@@ -10,6 +10,15 @@ header
     justify-content: space-around;
     align-items: center;
 }
+.homepage-header
+{
+  padding-top: 25px;
+}
+#header-photographer 
+{
+  margin: 0 auto;
+  width: 90%;
+}
 
 @media screen and (max-width: 700px) 
 {
@@ -55,10 +64,20 @@ header
   }
 }
 
-/* header img
+.contact-button:focus-visible,
+.btn-submit:focus-visible,
+.category-button:focus-visible
 {
-    width: 200px;
-} */
+  outline: 2px solid -webkit-focus-ring-color ;
+}
+
+.category-button:hover,
+.category-button:focus
+{
+  background: #901C1C;
+  color: #fff;
+  transition: .5s ease;
+}
 
 nav
 {
@@ -72,17 +91,41 @@ nav
 {
     display: inline-block;
     padding: 0 5px;
-    line-height: 25px;
+    line-height: 20px;
     border: 0.5px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 11px; 
     font-weight: 500;
     font-size: 12px;
-    line-height: 16px;
     text-align: center;  
     margin: 0; 
     color: #901c1c;
     background-color: transparent;
+} 
+.category-button-individual-page
+{
+    display: inline-block;
+    padding: 0 7px;
+    line-height: 24px;
+    border: 0.5px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 25px; 
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;  
+    margin: 0; 
+    color: #901c1c;
+    background-color: transparent;
+} 
+
+@media screen and (max-width: 700px) 
+{
+  .category-button-individual-page
+  {
+    font-size: 12px;
+    line-height: 15px;
+    padding: 1px 4px;
+  }
 } 
 
 
@@ -295,6 +338,14 @@ header h1
     text-align: left;
 }
 
+.contact-button:hover,
+.contact-button:focus
+{
+  background: #DB8876;
+  color: #000;
+  transition: .5s ease;
+}
+
 @media screen and (max-width: 700px) 
 {
   .photographerHeader
@@ -390,8 +441,12 @@ header h1
     width: 100%;
     display: flex;
     flex-flow: row wrap;
+    justify-content: flex-start;
+    /* align-content: stretch;
+    gap: 110px; */
     justify-content: space-between;
 
+    /* margin: 0 auto; */
 
 }
 
@@ -466,24 +521,136 @@ header h1
     display: none;
   }
 } 
+
+
 /* -----------------------Dropdown starts */
-option
+
+.selectbox-container
 {
-  background-color: red;
+  width: 260px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-option #popularity
+.custom-selector
 {
-  background-color: blue;
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    /* color: #888; */
+    width: 160px;
 }
+
+.custom-selector select
+{
+    width: 160px;
+    min-height: 35px;
+    background: #901C1C;
+    border-radius: 3px;
+    border-color: transparent;
+    color: #fff;
+    padding: 10px 30px 10px 15px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 18px;
+
+    /* remove native icon on the right */
+    appearance: none;
+}
+
+/* icon */
+.custom-selector::after
+{
+  
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    font-weight: 900;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #fff;
+}
+
+
+.custom-selector .selector-options
+{
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    background: #901C1C;
+    border-radius: 4px;
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 10%; 
+}
+
+.custom-selector .selector-options li
+{
+    height: 35px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.3s ease;
+    padding: 5px 15px;
+}
+
+.custom-selector .selector-options li:nth-child(1)::after
+{
+  
+    content: "\f077";
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    font-weight: 900;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    color: #fff;
+} 
+
+.custom-selector .selector-options li:hover 
+{
+    background: #901C1C;
+}
+
+.custom-selector .selector-options li::before 
+{          
+    content : "";
+    position: absolute;
+    left    : 6px;
+    height  : 45px;
+    width   : 90%; 
+    border-bottom:1px solid #fff;
+}
+
+.custom-selector .selector-options li:nth-child(3)::before
+{
+    border-color: transparent;
+}
+
+.sorting-text
+{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 700px) 
+{
+  .custom-selector select,
+  .sorting-text
+  {
+    display: none;
+  }
+} 
+
+
   /* -----------------------Dropdown ends */
 
-
-  /* Dropdown 2 starts here */
-
-
-
-   /* -----------------------Dropdown 2 ends */
 
     
 

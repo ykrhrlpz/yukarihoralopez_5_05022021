@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <style>
-        body
+         body
         {
             width: 100vw;
             height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center
-        }
+            align-items: center;
+            font-family: DM Sans;
+        } 
         *, *::after, *::before
         {
             box-sizing: border-box;
-        }
+        } 
 
         .custom-selector
         {
@@ -25,17 +28,17 @@
             display: inline-block;
             font-size: 14px;
             color: #888;
+            width: 120px;
         }
         .custom-selector select
         {
-            width: 200px;
+            width:120px;
             min-height: 35px;
-            background: #cbe7ff;
+            background: #901C1C;
             border-radius: 3px;
-            border: 2px solid #2196f3;
-            /* outline: none; */
+            border-color: transparent;
+            color: #fff;
             padding: 0 10px;
-            width: 100%;
             cursor: pointer;
             margin-top: 5px;
 
@@ -47,31 +50,30 @@
         /* icon */
         .custom-selector::after
         {
-            content: '';
-            border-width: 5px;
-            border-style: solid;
-            border-color: transparent;
-            border-top-color: #222;
+          
+            content: "\f078";
+            font-family: "Font Awesome 5 Free";
             display: inline-block;
+            font-weight: 900;
             position: absolute;
             right: 10px;
             bottom: 10px;
-            border-radius: 2px;
-
+            color: #fff;
         }
+
 
         .custom-selector .selector-options
         {
             list-style: none;
             padding: 5px 0;
             margin: 0;
-            background: #11436b;
+            background: #901C1C;
             border-radius: 4px;
             z-index: 1;
-            width: 96%;
+            width: 100%;
             position: absolute;
-            left: 2%;
-            top: 35%;
+            left: 0;
+            top: 12%; 
         }
 
         .custom-selector .selector-options li
@@ -85,26 +87,81 @@
             transition: background 0.3s ease;
         }
 
+        .custom-selector .selector-options li:nth-child(1)::after
+        {
+          
+            content: "\f077";
+            font-family: "Font Awesome 5 Free";
+            display: inline-block;
+            font-weight: 900;
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            color: #fff;
+        } 
+
         .custom-selector .selector-options li:hover 
         {
-            background: #03a9f4;
+            background: #901C1C;
         }
+
+        .custom-selector .selector-options li::before 
+        {          
+            content : "";
+            position: absolute;
+            left    : 6px;
+            height  : 38px;
+            width   : 90%; 
+            border-bottom:1px solid #fff;
+        }
+
+        .custom-selector .selector-options li:nth-child(3)::before
+        {
+            border-color: transparent;
+        }
+      
+        .sorting-text
+        {
+            margin: 0 10px 0 0;
+        }
+
+          /* .image
+        {
+            width: 100px;
+        } */
 
 
     </style>
 </head>
 <body>
-
+    <p class="sorting-text">Order by</p>
     <label class="custom-selector">
-        Select from number options
+        
         <select name="sample">
-            <option value="1">one</option>
-            <option value="2">two</option>
-            <option value="3">three</option>
+            <option value="popularity">Popularity</option>
+            <option value="date">Date</option>
+            <option value="title">Title</option>
         </select>
     </label>
 
-    <script>
+
+    <label>Order by</label>
+    <select id="selectbox">
+        <option value="popularity" id="popularity">Popularity</option>
+        <option value="date" id="date">Date</option>
+        <option value="title" id="title">Title</option>
+    </select>
+    <!-- <i class="fas fa-chevron-down"></i> -->
+    <!-- <button >one</button>
+    <button >three</button>
+    <button >two</button>
+    <button tabindex="0">one</button>
+    <button tabindex="0">three</button>
+    <button tabindex="0">two</button>
+
+    <img tabindex="0" class="image" src="./img/Nabeel/Portrait_AfternoonBreak.jpg" alt="" srcset=""> -->
+
+<script>
         const selector = document.querySelector(".custom-selector")
         selector.addEventListener("change", e => {
             console.log("changed", e.target.value);

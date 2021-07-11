@@ -33,11 +33,11 @@ class Photographer {
 							<h2>${this.photographer.name}</h2>
 							<h5>${this.photographer.city}, ${this.photographer.country}</h5>
 							<p class="header-description">${this.photographer.tagline}</p>
-							${generateTags(this.photographer.tags)}
+							${generateTagsForIndividualPage(this.photographer.tags)}
 						</div>
 				</div>
 		
-				<button class="contact-button modal-btn"">Contact me</button>
+				<button class="contact-button modal-btn">Contact me</button>
 				<div class="header-profile-img-container">
 					<img class="header-profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="Thumnail of ${this.photographer.name}">
 				</div>
@@ -107,14 +107,19 @@ class Photographer {
 			</div>
 		  </div>
 	
-			<label>Order by</label>
-			<select id="selectbox">
-				<option value="popularity" id="popularity">Popularity</option>
-				<option value="date" id="date">Date</option>
-				<option value="title" id="title">Title</option>
-			</select>
+	
 
-
+			<div class="selectbox-container">
+				<p class="sorting-text">Order by</p>
+				<label class="custom-selector">
+					
+					<select id="selectbox">
+						<option value="popularity">Popularity</option>
+						<option value="date">Date</option>
+						<option value="title">Title</option>
+					</select>
+				</label>
+			</div>
 
 			<div id="photo-gallery">
 				${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
@@ -173,6 +178,10 @@ for (let photographer of photographers)
 function generateTags(tags) 
 {
 	return tags.map(tag => `<button class="category-button mr-1" onclick="showHomeMainSection(filterPhotographersByTag('${tag}'))">#${tag}</button>`).join('')
+}
+function generateTagsForIndividualPage(tags) 
+{
+	return tags.map(tag => `<button class="category-button-individual-page mr-1" tabindex="-1")">#${tag}</button>`).join('')
 }
 
 // function to sort photographers by tag
@@ -254,3 +263,7 @@ function renderHomePage()
 
 renderHomePage()
 waitDOMElement()
+
+window.document.onkeydown = function(event){
+    if (event.key === 'Enter') console.log('hello Enter')
+}

@@ -191,6 +191,36 @@
 
 
 
+// caraousel
+
+// <div class="carousel-modal">
+// <div class="modal-close-icon" onclick="(() => { document.getElementsByClassName('carousel-modal')[0].classList.toggle('opened', false); slide=0; moveCarouselTo(0)})()">
+//     <i class="fas fa-times fa-2x"></i>
+// </div>
+// <div class="carousel-wrapper">
+//     <div class="carousel">
+
+//     ${
+//         createMediaArrayOfPhotographer(ID).map((item, index) => 
+//         {
+
+//             if (item.media.video)
+//             return `<video class="carousel__photo ${index == 0 ? 'initial' : null}" controls="controls" preload="metadata" poster="./img/PhotographersIDPhotos/${getPhotographerFullNameById(ID)}.jpg">
+//                         <source src="./img/${getPhotographerNameById(ID)}/${item.media.video}" type="video/mp4">
+//                         Sorry, your browser doesn't support embedded videos.
+//                     </video>`
+//             else 
+//             return `<img class="carousel__photo ${index == 0 ? 'initial' : null}" src="./img/${getPhotographerNameById(ID)}/${item.media.image}"  alt="Thumnail of ${item.media.altDescription}">`
+//         }).join("")
+//     }
+    
+//     <div class="carousel__button--next"><i class="fas fa-angle-right fa-2x carousel-icon"></i></div>
+//     <div class="carousel__button--prev"><i class="fas fa-angle-left fa-2x carousel-icon"></i></div>
+    
+//     </div>
+// </div>
+// </div>
+
 // Test.js
 //---------------------------------------------------------
 

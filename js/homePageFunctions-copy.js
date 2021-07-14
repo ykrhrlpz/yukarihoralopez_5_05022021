@@ -121,7 +121,8 @@ class Photographer {
 				</label>
 			</div>
 
-			<div id="photo-gallery">
+
+			<div class="gallery-wrapper">
 				${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
 			</div>
 
@@ -238,6 +239,6 @@ function renderHomePage()
 renderHomePage()
 waitDOMElement()
 
-window.document.onkeydown = function(event){
-    if (event.key === 'Enter') console.log('hello Enter')
-}
+// window.document.onkeydown = function(event){
+//     if (event.key === 'Enter') console.log('hello Enter')
+// }

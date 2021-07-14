@@ -49,7 +49,7 @@ class Media
         return `
             <article class="image-item">
              
-                <div onclick="(() => { document.getElementsByClassName('carousel-modal')[0].classList.toggle('opened', true)})()">
+                <div>
                     <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}" alt="${this.media.altDescription}" tabindex="0"/>
                 </div>
                 <div class="img-title">
@@ -228,7 +228,7 @@ function renderPhotographerIndividualPage(id)
 
     
 
-    initCarousel();
+    // initCarousel();
 
     createMediaArrayOfPhotographer(id).forEach(item =>
     {
@@ -296,22 +296,53 @@ function renderPhotographerIndividualPage(id)
         {
             case "popularity":
                 showGallerySortedBypopularity(id)
+                createMediaArrayOfPhotographer(id).forEach(item =>
+                {
+                    document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
+                    { 
+                        let numberLike = document.getElementById(`number-likes-${item.media.id}`).textContent
+                        document.getElementById(`number-likes-${item.media.id}`).textContent = parseInt(numberLike) + 1
+                        showTotalLikes(id)
+                    })
+                })
+                // showTotalLikes(id)
      
                 break;
 
             case "date":
                 showGallerySortedByDate(id) 
+                createMediaArrayOfPhotographer(id).forEach(item =>
+                {
+                    document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
+                    { 
+                        let numberLike = document.getElementById(`number-likes-${item.media.id}`).textContent
+                        document.getElementById(`number-likes-${item.media.id}`).textContent = parseInt(numberLike) + 1
+                        showTotalLikes(id)
+                    })
+                })
+                // showTotalLikes(id)
 
                 break;
 
             case "title":
                 showGallerySortedByTitle(id) 
+                createMediaArrayOfPhotographer(id).forEach(item =>
+                {
+                    document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
+                    { 
+                        let numberLike = document.getElementById(`number-likes-${item.media.id}`).textContent
+                        document.getElementById(`number-likes-${item.media.id}`).textContent = parseInt(numberLike) + 1
+                        showTotalLikes(id)
+                    })
+                })
+                // showTotalLikes(id)
+            
     
                 break;
+
             default:
                 createMediaGroup(createMediaArrayOfPhotographer(id)).join("")
-  
-
+                showTotalLikes(id)
         }
     })
 
@@ -349,10 +380,10 @@ function renderPhotographerIndividualPage(id)
         selector.appendChild(dropDown);
 
         // handle click out
-        document.addEventListener("click", e => {
-            if(!selector.contains(e.target)){
-                dropDown.remove();
-            }
-        })
+        // document.addEventListener("click", e => {
+        //     if(!selector.contains(e.target)){
+        //         dropDown.remove();
+        //     }
+        // })
     })
 }   

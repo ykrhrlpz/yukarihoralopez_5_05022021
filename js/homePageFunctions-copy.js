@@ -44,70 +44,68 @@ class Photographer {
 			</div>
 			
 			<div class="bground">
-			<div class="content">
-			  <span class="close"></span>
-			  <div class="modal-body">
-		
-				<p class="modal-body-title">Contact me</p>
-				<p class="modal-body-title">${this.photographer.name}</p>
-				<form
-				  id="contact-form"
-				  name="reserve"
-				  action="index.html"
-				  method="get"
-				>
-				  <div class="formData">
-					<label for="formData-first">First Name</label><br>
-					<input
-					  class="text-control"
-					  type="text"
-					  id="formData-first"
-					  name="first"
-					/><br>
-				  </div>
-		
-				  <div class="formData">
-					<label for="formData-last">Last Name</label><br>
-					<input
-					  class="text-control"
-					  type="text"
-					  id="formData-last"
-					  name="last"
-					/><br>
-				  </div>
-		
-				  <div class="formData">
-					<label for="formData-email">Email</label><br>
-					<input
-					  class="text-control"
-					  type="email"
-					  id="formData-email"
-					  name="email"
-					/><br>
-				  </div>
-		
-				  <div class="formData">
-					<label for="formData-message">Your message</label><br>
-					<textarea
-						class="text-control textarea-text"
-						type="email"
-						id="formData-message"
-						name="message"
-					></textarea>
-		
-				  </div>
-				  <button
-					class="btn-submit button"
-					type="submit"
-					>
-					Send
-				  </button>
-				</form>
-			  </div>
+				<div class="content">
+					<span class="close"></span>
+					<div class="modal-body">
+				
+						<p class="modal-body-title">Contact me</p>
+						<p class="modal-body-title">${this.photographer.name}</p>
+						<form
+						id="contact-form"
+						name="reserve"
+						action="index.html"
+						method="get"
+						>
+							<div class="formData">
+								<label for="formData-first">First Name</label><br>
+								<input
+								class="text-control"
+								type="text"
+								id="formData-first"
+								name="first"
+								/><br>
+							</div>
+					
+							<div class="formData">
+								<label for="formData-last">Last Name</label><br>
+								<input
+								class="text-control"
+								type="text"
+								id="formData-last"
+								name="last"
+								/><br>
+							</div>
+					
+							<div class="formData">
+								<label for="formData-email">Email</label><br>
+								<input
+								class="text-control"
+								type="email"
+								id="formData-email"
+								name="email"
+								/><br>
+							</div>
+					
+							<div class="formData">
+								<label for="formData-message">Your message</label><br>
+								<textarea
+									class="text-control textarea-text"
+									type="email"
+									id="formData-message"
+									name="message"
+								></textarea>
+					
+							</div>
+							<button
+								class="btn-submit button"
+								type="submit"
+							>
+								Send
+							</button>
+						</form>
+					</div>
+				</div>
 			</div>
-		  </div>
-	
-	
 
 			<div class="selectbox-container">
 				<p class="sorting-text">Order by</p>
@@ -123,8 +121,10 @@ class Photographer {
 
 
 			<div class="gallery-wrapper">
-				${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
-			</div>
+				<div id="photo-gallery" class="gallery">
+					${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
+				</div>
+			</div> 
 
 			<div class="bottom-card">
 				<div class="rating">
@@ -239,6 +239,6 @@ function renderHomePage()
 renderHomePage()
 waitDOMElement()
 
-// window.document.onkeydown = function(event){
-//     if (event.key === 'Enter') console.log('hello Enter')
-// }
+window.document.onkeydown = function(event){
+    if (event.key === 'Enter') console.log('hello Enter')
+}

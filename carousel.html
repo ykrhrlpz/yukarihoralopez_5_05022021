@@ -191,12 +191,12 @@ body{
    
     <div class="wrapper">
         <div class="gallery">
-          <div class="image"><span><img src="./img/Mimi/Portrait_Background.jpg" alt=""></span></div>
-          <div class="image"><span><img src="./img/Mimi/Portrait_Nora.jpg" alt=""></span></div>
-          <div class="image"><span><img src="./img/Mimi/Portrait_Wednesday.jpg" alt=""></span></div>
-          <div class="image"><span><img src="./img/Mimi/Travel_HillsideColor.jpg" alt=""></span></div>
-          <div class="image"><span><img src="./img/Mimi/Travel_Lonesome.jpg" alt=""></span></div>
-          <div class="image"><span><img src="./img/Mimi/Animals_Rainbow.jpg" alt=""></span></div>
+          <div class="image"><span><img src="./img/Mimi/Portrait_Background.jpg" alt="" tabindex="0"></span></div>
+          <div class="image"><span><img src="./img/Mimi/Portrait_Nora.jpg" alt="" tabindex="0"></span></div>
+          <div class="image"><span><img src="./img/Mimi/Portrait_Wednesday.jpg" alt="" tabindex="0"></span></div>
+          <div class="image"><span><img src="./img/Mimi/Travel_HillsideColor.jpg" alt="" tabindex="0"></span></div>
+          <div class="image"><span><img src="./img/Mimi/Travel_Lonesome.jpg" alt="" tabindex="0"></span></div>
+          <div class="image"><span><img src="./img/Mimi/Animals_Rainbow.jpg" alt="" tabindex="0"></span></div>
         </div>
       </div>
       <div class="preview-box">
@@ -205,9 +205,9 @@ body{
           <span class="icon fas fa-times"></span>
         </div>
         <div class="image-box">
-          <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-          <div class="slide next"><i class="fas fa-angle-right"></i></div>
-          <img src="" alt="">
+          <div class="slide prev" tabindex="0"><i class="fas fa-angle-left"></i></div>
+          <div class="slide next" tabindex="0"><i class="fas fa-angle-right"></i></div>
+          <img src="" alt="" tabindex="0">
           
         </div>
         <div class="lightbox-image-description">title of the image</div>
@@ -215,6 +215,10 @@ body{
       <div class="shadow"></div>
 
     <script>
+
+      
+
+      
                 //getting all required elements
         const gallery  = document.querySelectorAll(".image"),
         previewBox = document.querySelector(".preview-box"),
@@ -224,13 +228,16 @@ body{
         totalImg = previewBox.querySelector(".total-img"),
         shadow = document.querySelector(".shadow");
 
-        window.onload = ()=>{
-            for (let i = 0; i < gallery.length; i++) {
+        window.onload = ()=>
+        {
+            for (let i = 0; i < gallery.length; i++) 
+            {
                 totalImg.textContent = gallery.length; //passing total img length to totalImg variable
                 let newIndex = i; //passing i value to newIndex variable
                 let clickedImgIndex; //creating new variable
                 
-                gallery[i].onclick = () =>{
+                gallery[i].onclick = () =>
+                {
                     clickedImgIndex = i; //passing cliked image index to created variable (clickedImgIndex)
                     function preview(){
                         currentImg.textContent = newIndex + 1; //passing current img index to currentImg varible with adding +1
@@ -279,8 +286,32 @@ body{
                         document.querySelector("body").style.overflow = "scroll";
                     }
                 }
+
+               
                 
             }
+
+            const prevBtn = document.querySelector(".prev");
+                const nextBtn = document.querySelector(".next");
+                prevBtn.addEventListener('keydown', e =>
+                {
+                  console.log(e)
+                  if(e.keyCode === 39)
+                  {
+                      alert('Hello' + e.key )
+                      e.preventDefault()
+                      prevBtn.onclick = ()=>{ 
+                        newIndex--; //decrement index
+                        if(newIndex == 0){
+                            preview(); 
+                            prevBtn.style.display = "none"; 
+                        }else{
+                            preview();
+                            nextBtn.style.display = "block";
+                        } 
+                    }
+                  }
+                })
             
         }
     </script>

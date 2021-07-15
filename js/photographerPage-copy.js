@@ -25,64 +25,58 @@ class Media
 
     createGallery()
     {
-        return`
- 
-            <div id="photo-gallery" class="gallery">
-            ${(() => {
-                if (this.media.video) 
-                {
-                    return `
-                    <article class="image-item">        
-                        <video controls="controls" preload="metadata" poster="./img/PhotographersIDPhotos/${getPhotographerFullNameById(this.media.photographerId)}.jpg">
-                            <source src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.video}" type="video/mp4">
-                            Sorry, your browser doesn't support embedded videos.
-                        </video>
+        if (this.media.video) 
+        {
+            return `
+            <article class="image-item">        
+                <video controls="controls" preload="metadata" poster="./img/PhotographersIDPhotos/${getPhotographerFullNameById(this.media.photographerId)}.jpg">
+                    <source src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.video}" type="video/mp4">
+                    Sorry, your browser doesn't support embedded videos.
+                </video>
 
-                        <div class="img-title">
-                            <p>${this.media.title}</p>
-                            <div class="rating">
-                                <p id="number-likes-${this.media.id}">${this.media.likes}</p>
-                                <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </article>
-              
-                  `
-                } 
-                else 
-                {
-                    return `
-                    <article class="image-item">
-                    
-                        <div class="image">
-                            <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}" alt="${this.media.altDescription}" tabindex="0"/>
-                        </div>
-                        <div class="img-title">
-                            <p class="media-title">${this.media.title}</p>
-                            <div class="rating">
-                                <p id="number-likes-${this.media.id}">${this.media.likes}</p>
-                                <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </article> 
-                    <div class="preview-box">
-                    <div class="details">
-                        <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
-                        <span class="icon fas fa-times"></span>
+                <div class="img-title">
+                    <p>${this.media.title}</p>
+                    <div class="rating">
+                        <p id="number-likes-${this.media.id}">${this.media.likes}</p>
+                        <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
                     </div>
-                    <div class="image-box">
-                        <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-                        <div class="slide next"><i class="fas fa-angle-right"></i></div>
-                        <img src="" alt="">
-                    
+                </div>
+            </article>
+        
+            `
+        } 
+        else 
+        {
+            return `
+            <article class="image-item">
+            
+                <div class="image">
+                    <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}" alt="${this.media.altDescription}" tabindex="0"/>
+                </div>
+                <div class="img-title">
+                    <p class="media-title">${this.media.title}</p>
+                    <div class="rating">
+                        <p id="number-likes-${this.media.id}">${this.media.likes}</p>
+                        <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
                     </div>
-                        <div class="lightbox-image-description"><p></p></div>
-                    </div>
-                    <div class="shadow"></div>
-                  `
-                }
-              })()}   
-        `   
+                </div>
+            </article> 
+            <div class="preview-box">
+            <div class="details">
+                <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
+                <span class="icon fas fa-times"></span>
+            </div>
+            <div class="image-box">
+                <div class="slide prev"><i class="fas fa-angle-left"></i></div>
+                <div class="slide next"><i class="fas fa-angle-right"></i></div>
+                <img src="" alt="">
+            
+            </div>
+                <div class="lightbox-image-description"><p></p></div>
+            </div>
+            <div class="shadow"></div>
+            `
+        }
     }
     getLikes()
     {
@@ -426,9 +420,11 @@ function renderPhotographerIndividualPage(id)
         let newIndex = i; //passing i value to newIndex variable
         let clickedImgIndex; //creating new variable
         
-        gallery[i].onclick = () =>{
+        gallery[i].onclick = () =>
+        {
             clickedImgIndex = i; //passing cliked image index to created variable (clickedImgIndex)
-            function preview(){
+            function preview()
+            {
                 currentImg.textContent = newIndex + 1; //passing current img index to currentImg varible with adding +1
                 let imageURL = gallery[newIndex].querySelector("img").src; //getting user clicked img url
                 previewImg.src = imageURL; //passing user clicked img url in previewImg src
@@ -441,28 +437,38 @@ function renderPhotographerIndividualPage(id)
     
             const prevBtn = document.querySelector(".prev");
             const nextBtn = document.querySelector(".next");
-            if(newIndex == 0){ //if index value is equal to 0 then hide prevBtn
+            if(newIndex == 0)
+            { //if index value is equal to 0 then hide prevBtn
                 prevBtn.style.display = "none"; 
             }
-            if(newIndex >= gallery.length - 1){ //if index value is greater and equal to gallery length by -1 then hide nextBtn
+            if(newIndex >= gallery.length - 1)
+            { //if index value is greater and equal to gallery length by -1 then hide nextBtn
                 nextBtn.style.display = "none"; 
             }
-            prevBtn.onclick = ()=>{ 
+            prevBtn.onclick = ()=>
+            { 
                 newIndex--; //decrement index
-                if(newIndex == 0){
+                if(newIndex == 0)
+                {
                     preview(); 
                     prevBtn.style.display = "none"; 
-                }else{
+                }
+                else
+                {
                     preview();
                     nextBtn.style.display = "block";
                 } 
             }
-            nextBtn.onclick = ()=>{ 
+            nextBtn.onclick = ()=>
+            { 
                 newIndex++; //increment index
-                if(newIndex >= gallery.length - 1){
+                if(newIndex >= gallery.length - 1)
+                {
                     preview(); 
                     nextBtn.style.display = "none";
-                }else{
+                }
+                else
+                {
                     preview(); 
                     prevBtn.style.display = "block";
                 }
@@ -471,12 +477,12 @@ function renderPhotographerIndividualPage(id)
             previewBox.classList.add("show"); 
             shadow.style.display = "block"; 
             closeIconLightbox.onclick = ()=>{
-                newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
-                prevBtn.style.display = "block"; 
-                nextBtn.style.display = "block";
-                previewBox.classList.remove("show");
-                shadow.style.display = "none";
-                document.querySelector("body").style.overflow = "scroll";
+            newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
+            prevBtn.style.display = "block"; 
+            nextBtn.style.display = "block";
+            previewBox.classList.remove("show");
+            shadow.style.display = "none";
+            document.querySelector("body").style.overflow = "scroll";
             }
         }
         

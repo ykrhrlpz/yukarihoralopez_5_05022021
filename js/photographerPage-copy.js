@@ -50,7 +50,7 @@ class Media
             return `
             <article class="image-item">
             
-                <div class="image">
+                <div class="image lightbox-image">
                     <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}" alt="${this.media.altDescription}" tabindex="0"/>
                 </div>
                 <div class="img-title">
@@ -406,13 +406,14 @@ function renderPhotographerIndividualPage(id)
 
     // Lightbox starts here ----------------------------------------------------------------
 
-    const gallery  = document.querySelectorAll(".image"),
-    previewBox = document.querySelector(".preview-box"),
-    previewImg = previewBox.querySelector("img"),
-    closeIconLightbox = previewBox.querySelector(".icon"),
-    closeIconLightboxTab = previewBox.querySelector(".close-icon"),
-    currentImg = previewBox.querySelector(".current-img"),
-    totalImg = previewBox.querySelector(".total-img"),
+    const gallery  = document.querySelectorAll(".image");
+    const lightboxImage  = document.querySelectorAll(".lightbox-image");
+    previewBox = document.querySelector(".preview-box");
+    previewImg = previewBox.querySelector("img");
+    closeIconLightbox = previewBox.querySelector(".icon");
+    closeIconLightboxTab = previewBox.querySelector(".close-icon");
+    currentImg = previewBox.querySelector(".current-img");
+    totalImg = previewBox.querySelector(".total-img");
     shadow = document.querySelector(".shadow");
 
     for (let i = 0; i < gallery.length; i++) 
@@ -423,6 +424,7 @@ function renderPhotographerIndividualPage(id)
         
         gallery[i].onclick = () =>
         {
+         
             clickedImgIndex = i; //passing cliked image index to created variable (clickedImgIndex)
             function preview()
             {
@@ -481,6 +483,7 @@ function renderPhotographerIndividualPage(id)
                 }
             }
 
+            // Go though images in lightbox 
             document.onkeydown = function(e) 
             {
                 switch (e.key) 
@@ -518,45 +521,6 @@ function renderPhotographerIndividualPage(id)
 
             }
 
-            // document.addEventListener("keydown", e =>
-            // {
-            //     if (e.key === 'ArrowLeft')
-            //     {
-            //         newIndex--; //decrement index
-            //         if(newIndex == 0)
-            //         {
-            //             preview(); 
-            //             prevBtn.style.display = "none"; 
-            //         }
-
-            //         else
-            //         {
-            //             preview();
-            //             nextBtn.style.display = "block";
-            //         } 
-            //     }
-            // })
-
-            // document.addEventListener('keydown', e =>
-            // {
-            //     if (e.key === 'ArrowRight') 
-            //     {
-            //         console.log('hello Right Arrow')
-            //         newIndex++; //increment index
-            //         if(newIndex >= gallery.length - 1)
-            //         {
-            //             preview(); 
-            //             nextBtn.style.display = "none";
-            //         }
-
-            //         else
-            //         {
-            //             preview(); 
-            //             prevBtn.style.display = "block";
-            //         }
-            //     }
-            // })
-
             document.querySelector("body").style.overflow = "hidden";
             previewBox.classList.add("show"); 
             shadow.style.display = "block"; 
@@ -590,12 +554,152 @@ function renderPhotographerIndividualPage(id)
                 }
                 
             })
+
+
             
         }
        
-        
-       
-    }
+          // Open a lightbox with keyboard
+          gallery[i].addEventListener('keydown', e => 
+          {
+              if (e.code === 'Enter')
+              {
+                clickedImgIndex = i; //passing cliked image index to created variable (clickedImgIndex)
+                function preview()
+                {
+                    currentImg.textContent = newIndex + 1; //passing current img index to currentImg varible with adding +1
+                    let imageURL = gallery[newIndex].querySelector("img").src; //getting user clicked img url
+                    previewImg.src = imageURL; //passing user clicked img url in previewImg src
 
-    
+                    // Updatge the title of the image in a light box
+                    let descriptionText = document.querySelectorAll(".media-title")[newIndex].textContent; 
+                    document.querySelectorAll(".lightbox-image-description")[0].querySelector("p").textContent = descriptionText
+                }
+
+                preview(); //calling above function
+        
+                const prevBtn = document.querySelector(".prev");
+                const nextBtn = document.querySelector(".next");
+
+                if(newIndex == 0)
+                { //if index value is equal to 0 then hide prevBtn
+                    prevBtn.style.display = "none"; 
+                }
+                if(newIndex >= gallery.length - 1)
+                { //if index value is greater and equal to gallery length by -1 then hide nextBtn
+                    nextBtn.style.display = "none"; 
+                }
+                prevBtn.onclick = ()=>
+                { 
+                    newIndex--; //decrement index
+                    if(newIndex == 0)
+                    {
+                        preview(); 
+                        prevBtn.style.display = "none"; 
+                    }
+
+                    else
+                    {
+                        preview();
+                        nextBtn.style.display = "block";
+                    } 
+                }
+
+
+                nextBtn.onclick = ()=>
+                { 
+                    newIndex++; //increment index
+                    if(newIndex >= gallery.length - 1)
+                    {
+                        preview(); 
+                        nextBtn.style.display = "none";
+                    }
+
+                    else
+                    {
+                        preview(); 
+                        prevBtn.style.display = "block";
+                    }
+                }
+
+                // Go though images in lightbox 
+                document.onkeydown = function(e) 
+                {
+                    switch (e.key) 
+                    {
+                        case "ArrowLeft":
+                            newIndex--; //decrement index
+                            if(newIndex == 0)
+                            {
+                                preview(); 
+                                prevBtn.style.display = "none"; 
+                            }
+        
+                            else
+                            {
+                                preview();
+                                nextBtn.style.display = "block";
+                            } 
+                            break;
+
+                        case "ArrowRight":
+                            newIndex++; //increment index
+                            if(newIndex >= gallery.length - 1)
+                            {
+                                preview(); 
+                                nextBtn.style.display = "none";
+                            }
+        
+                            else
+                            {
+                                preview(); 
+                                prevBtn.style.display = "block";
+                            }
+                            break;
+                    }
+
+                }
+
+                document.querySelector("body").style.overflow = "hidden";
+                previewBox.classList.add("show"); 
+                shadow.style.display = "block"; 
+
+                closeIconLightbox.onclick = ()=>
+                {
+                    newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
+                    prevBtn.style.display = "block"; 
+                    nextBtn.style.display = "block";
+                    previewBox.classList.remove("show");
+                    shadow.style.display = "none";
+                    document.querySelector("body").style.overflow = "scroll";
+                }
+
+
+                closeIconLightboxTab.addEventListener('keydown', e =>
+                {
+                    // totalImg.textContent = gallery.length; //passing total img length to totalImg variable
+                    // let clickedImgIndex; //creating new variable
+                    // console.log(e)
+                    if(e.code === 'Enter' )
+                    {
+                        // alert('Hello' + e.key )
+                        e.preventDefault()
+                        newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
+                        prevBtn.style.display = "block"; 
+                        nextBtn.style.display = "block";
+                        previewBox.classList.remove("show");
+                        shadow.style.display = "none";
+                        document.querySelector("body").style.overflow = "scroll";
+                    }
+                    
+                })
+
+              }
+          })
+       
+      
+    }
+ 
+   
+   
 }   

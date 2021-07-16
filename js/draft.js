@@ -484,3 +484,43 @@
 //     })
 //     return result
 // }
+
+
+            // document.addEventListener("keydown", e =>
+            // {
+            //     if (e.key === 'ArrowLeft')
+            //     {
+            //         newIndex--; //decrement index
+            //         if(newIndex == 0)
+            //         {
+            //             preview(); 
+            //             prevBtn.style.display = "none"; 
+            //         }
+
+            //         else
+            //         {
+            //             preview();
+            //             nextBtn.style.display = "block";
+            //         } 
+            //     }
+            // })
+
+            // document.addEventListener('keydown', e =>
+            // {
+            //     if (e.key === 'ArrowRight') 
+            //     {
+            //         console.log('hello Right Arrow')
+            //         newIndex++; //increment index
+            //         if(newIndex >= gallery.length - 1)
+            //         {
+            //             preview(); 
+            //             nextBtn.style.display = "none";
+            //         }
+
+            //         else
+            //         {
+            //             preview(); 
+            //             prevBtn.style.display = "block";
+            //         }
+            //     }
+            // })

@@ -291,28 +291,7 @@ body{
                 
             }
 
-            const prevBtn = document.querySelector(".prev");
-                const nextBtn = document.querySelector(".next");
-                prevBtn.addEventListener('keydown', e =>
-                {
-                  console.log(e)
-                  if(e.keyCode === 39)
-                  {
-                      alert('Hello' + e.key )
-                      e.preventDefault()
-                      prevBtn.onclick = ()=>{ 
-                        newIndex--; //decrement index
-                        if(newIndex == 0){
-                            preview(); 
-                            prevBtn.style.display = "none"; 
-                        }else{
-                            preview();
-                            nextBtn.style.display = "block";
-                        } 
-                    }
-                  }
-                })
-            
+           
         }
     </script>
 

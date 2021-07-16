@@ -239,6 +239,24 @@ function renderHomePage()
 renderHomePage()
 waitDOMElement()
 
-window.document.onkeydown = function(event){
-    if (event.key === 'Enter') console.log('hello Enter')
-}
+// window.document.onkeydown = function(event){
+//     if (event.code === 'Enter') console.log('hello Enter')
+// }
+
+
+// document.onkeydown = function(e) {
+//     switch (e.code) {
+//         case 37:
+//             alert('left');
+//             break;
+//         case 38:
+//             alert('up');
+//             break;
+//         case 39:
+//             alert('right');
+//             break;
+//         case 40:
+//             alert('down');
+//             break;
+//     }
+// };

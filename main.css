@@ -3,6 +3,11 @@
     font-family: 'DM Sans', sans-serif;
 }
 
+*:focus
+{
+  outline: solid;
+}
+
 header 
 {
     display: flex;
@@ -818,9 +823,9 @@ header h1
   vertical-align: middle;
   transition: all 0.3s ease;
 }
-.gallery .image:hover img{
+/* .gallery .image:hover img{
   transform: scale(1.1);
-}
+} */
 
 .preview-box{
   position: fixed;

@@ -963,3 +963,236 @@ header h1
 } 
 /* ----------------------- lightbox Ends here*/
 
+/* Modal form */
+
+.button 
+{
+  background: #fe142f;
+  margin-top: 0.5em;
+  padding: 1em;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover 
+{
+  background: rgba(254, 20, 47, .2);
+}
+
+.bground 
+{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
+.content 
+{
+  margin: 5% auto;
+  width: 100%;
+  max-width: 700px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #DB8876;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  color: #312E2E;
+}
+
+.modal-body 
+{
+  padding: 15px 8%;
+  margin: 0 auto 15px auto;
+}
+
+label 
+{
+  font-family: var(--font-default);
+  font-size: 24px;
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  color: #312E2E;
+}
+input,
+textarea 
+{
+  padding: 8px;
+  border: 0.8px solid #ccc;
+  outline: none;
+}
+input.text-control:focus,
+textarea.text-control:focus
+{
+  border: 3px solid #279e7a;
+}
+.text-control 
+{
+  margin: 0;
+  padding: 8px;
+  width: 96%;
+  border-radius: 5px;
+  font-size: 20px;
+  height: 48px;
+}
+.formData[data-error]::after 
+{
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: #e54858;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: right;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
+.formData[data-error-visible="true"]::after 
+{
+  opacity: 1;
+}
+.formData[data-error-visible="true"] .text-control 
+{
+  border: 2px solid #e54858;
+}
+
+.close 
+{
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.close:before,
+.close:after 
+{
+  position: absolute;
+  left: -22px;
+  content: " ";
+  height: 55px;
+  width: 7px;
+  background-color: #fff;
+}
+.close:before 
+{
+  transform: rotate(45deg);
+}
+.close:after 
+{
+  transform: rotate(-45deg);
+}
+.btn-submit 
+{
+  background: #901C1C;
+  display: block;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 16px 40px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+}
+
+.textarea-text
+{
+    height: 170px;
+}
+
+.modal-body-title
+{
+    color: #000;
+    font-size: 38px;
+    margin: 0;
+}
+
+/* custom select end */
+.content button
+{
+  margin-top: .7rem;
+}
+
+button:focus {outline: 0;}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media screen and (max-width: 540px) 
+{
+  .modal-body 
+  {
+    padding: 25px 8%;
+  }
+  .modal-body-title:nth-child(2) 
+  {
+    margin-bottom: 25px;
+  }
+  .content
+  {
+    margin: 0;
+    min-height: 100%;
+    height: max-content;
+  }
+  label
+  {
+    margin-bottom: 6px;
+    margin-top: 10px;
+  }
+
+  .text-control
+  {
+    height: 34px;
+  }
+  .textarea-text
+  {
+      height: 170px;
+  }
+
+  .close
+  {
+    top: 22px;
+  }
+  .close:before,
+  .close:after 
+  {
+    position: absolute;
+    left: 33px;
+    content: " ";
+    height: 31px;
+    width: 4px;
+    background-color: #fff;
+  }
+
+  .btn-submit
+  {
+    margin: 0 auto;
+    padding: 8px 70px;
+    font-size: 1.1rem;
+  }
+  .content button 
+  {
+    margin-top: 1.2rem;
+  }
+}

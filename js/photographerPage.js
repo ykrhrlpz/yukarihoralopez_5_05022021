@@ -92,12 +92,6 @@ const MediaGalleryOfAllPhotographers = media.map(item => new Media(item))
 // /make an array of all the media from a photographer
 const MediaGalleryByPhotographer = MediaGalleryOfAllPhotographers.map(item => new Media(item))
 
-//----------------------------
-
-
-
-//---------------------------- Style Selectbox 
-
 ////////////////////////////////////////////////////////////
 
 
@@ -191,9 +185,6 @@ function showPhotographerMainSection(array, id)
     document.getElementById("photographer-indivisual-main").innerHTML = array.find(photographer => photographer.photographer.id === id).showIndividualProfile(id);
 }
 
-
-
-
 //function to get photographer name from their ID
 function getPhotographerNameById(ID)
 {
@@ -265,9 +256,7 @@ function renderPhotographerIndividualPage(id)
             media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
             document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
             showTotalLikes(id)
-            // let numberLike = document.getElementById(`number-likes-${item.media.id}`).textContent
-            // document.getElementById(`number-likes-${item.media.id}`).textContent = parseInt(numberLike) + 1
-            // showTotalLikes(id)
+     
         })
     })
 
@@ -320,9 +309,6 @@ function renderPhotographerIndividualPage(id)
 
     //---------------------------- Style Selectbox 
     let selector = document.querySelector(".custom-selector")
-    // selector.addEventListener("change", e => {
-    // 	console.log("changed", e.target.value);
-    // })
 
     // Sort image gallery by selecting selectbox
     document.getElementById("selectbox").addEventListener("change", () => 
@@ -339,12 +325,11 @@ function renderPhotographerIndividualPage(id)
                     document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
                     { 
                         media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
-            document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
-            showTotalLikes(id)
+                        document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
+                        showTotalLikes(id)
                         
                     })
                 })
-                // showTotalLikes(id)
      
                 break;
 
@@ -356,11 +341,10 @@ function renderPhotographerIndividualPage(id)
                     document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
                     { 
                         media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
-            document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
-            showTotalLikes(id)
+                        document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
+                        showTotalLikes(id)
                     })
                 })
-                // showTotalLikes(id)
 
                 break;
 
@@ -372,13 +356,11 @@ function renderPhotographerIndividualPage(id)
                     document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
                     { 
                         media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
-            document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
-            showTotalLikes(id)
+                        document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
+                        showTotalLikes(id)
                     })
                 })
-                // showTotalLikes(id)
-            
-    
+
                 break;
 
             default:
@@ -422,13 +404,6 @@ function renderPhotographerIndividualPage(id)
         });
 
         selector.appendChild(dropDown);
-
-        // handle click out
-        // document.addEventListener("click", e => {
-        //     if(!selector.contains(e.target)){
-        //         dropDown.remove();
-        //     }
-        // })
     })
 
     // Lightbox starts here ----------------------------------------------------------------

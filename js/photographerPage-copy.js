@@ -50,7 +50,7 @@ class Media
             return `
             <article class="image-item">
             
-                <div class="image lightbox-image">
+                <div class="image">
                     <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}" alt="${this.media.altDescription}" tabindex="0"/>
                 </div>
                 <div class="img-title">
@@ -61,17 +61,17 @@ class Media
                     </div>
                 </div>
             </article> 
-            <div class="preview-box">
-            <div class="details">
-                <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
-                <span class="icon fas fa-times close-icon" tabindex="0"></span>
-            </div>
-            <div class="image-box">
-                <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-                <div class="slide next"><i class="fas fa-angle-right"></i></div>
-                <img src="" alt="">
-            
-            </div>
+
+            <div class="preview-box" role="dialog" aria-modal="true" >
+                <div class="details">
+                    <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
+                    <span class="icon fas fa-times" tabindex="0"></span>
+                </div>
+                <div class="image-box">
+                    <div class="slide prev"><i class="fas fa-angle-left"></i></div>
+                    <div class="slide next"><i class="fas fa-angle-right"></i></div>
+                    <img src="" alt="">
+                </div>
                 <div class="lightbox-image-description"><p></p></div>
             </div>
             <div class="shadow"></div>
@@ -256,7 +256,7 @@ function renderPhotographerIndividualPage(id)
 
     showTotalLikes(id)
 
-    // Contact Modal Starts here/////////////////////////////////////
+    // Contact Modal Starts here ----------------------------------------------------------------
 
     let modalbg = document.querySelector(".bground");
     let modalBtn = document.querySelectorAll(".modal-btn");
@@ -286,7 +286,7 @@ function renderPhotographerIndividualPage(id)
         console.log("Message:", formDataMessage.value);
     }
 
-        ////////// launch modal event
+    //Launch modal event
     modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
     closeIcon.addEventListener("click", () => 
@@ -299,7 +299,21 @@ function renderPhotographerIndividualPage(id)
         event.preventDefault();
         outputForValue()
     })
-    // Contact Modal Ends here//////////////////////////////////////////////////////////
+
+
+    // document.getElementById("test").addEventListener('keydown', e =>
+    // {
+    //     // document.getElementById("textId").focus();
+    //     if(e.code === 'Escape' )
+    //     {
+    
+    //     console.log("hello");
+    //     closeModal()
+    //     }
+    // })
+
+
+    // Contact Modal Ends here ----------------------------------------------------------------
 
     // Sort image gallery by selecting selectbox
     document.getElementById("selectbox").addEventListener("change", () => 
@@ -407,11 +421,9 @@ function renderPhotographerIndividualPage(id)
     // Lightbox starts here ----------------------------------------------------------------
 
     const gallery  = document.querySelectorAll(".image");
-    const lightboxImage  = document.querySelectorAll(".lightbox-image");
     previewBox = document.querySelector(".preview-box");
     previewImg = previewBox.querySelector("img");
     closeIconLightbox = previewBox.querySelector(".icon");
-    closeIconLightboxTab = previewBox.querySelector(".close-icon");
     currentImg = previewBox.querySelector(".current-img");
     totalImg = previewBox.querySelector(".total-img");
     shadow = document.querySelector(".shadow");
@@ -486,6 +498,7 @@ function renderPhotographerIndividualPage(id)
             // Go though images in lightbox 
             document.onkeydown = function(e) 
             {
+                // document.getElementById("textId").focus();
                 switch (e.key) 
                 {
                     case "ArrowLeft":
@@ -517,6 +530,19 @@ function renderPhotographerIndividualPage(id)
                             prevBtn.style.display = "block";
                         }
                         break;
+
+                    case "Escape":
+                        
+                        // console.log('Hello' + e.key )
+                        e.preventDefault()
+                        newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
+                        prevBtn.style.display = "block"; 
+                        nextBtn.style.display = "block";
+                        previewBox.classList.remove("show");
+                        shadow.style.display = "none";
+                        document.querySelector("body").style.overflow = "scroll";
+                     
+                        break;
                 }
 
             }
@@ -534,29 +560,6 @@ function renderPhotographerIndividualPage(id)
                 shadow.style.display = "none";
                 document.querySelector("body").style.overflow = "scroll";
             }
-
-
-            closeIconLightboxTab.addEventListener('keydown', e =>
-            {
-                // totalImg.textContent = gallery.length; //passing total img length to totalImg variable
-                // let clickedImgIndex; //creating new variable
-                // console.log(e)
-                if(e.code === 'Enter' )
-                {
-                    // alert('Hello' + e.key )
-                    e.preventDefault()
-                    newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
-                    prevBtn.style.display = "block"; 
-                    nextBtn.style.display = "block";
-                    previewBox.classList.remove("show");
-                    shadow.style.display = "none";
-                    document.querySelector("body").style.overflow = "scroll";
-                }
-                
-            })
-
-
-            
         }
        
           // Open a lightbox with keyboard
@@ -656,6 +659,20 @@ function renderPhotographerIndividualPage(id)
                                 prevBtn.style.display = "block";
                             }
                             break;
+
+
+                            case "Esc":
+                                
+                                console.log('Hello' + e.key )
+                                e.preventDefault()
+                                newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
+                                prevBtn.style.display = "block"; 
+                                nextBtn.style.display = "block";
+                                previewBox.classList.remove("show");
+                                shadow.style.display = "none";
+                                document.querySelector("body").style.overflow = "scroll";
+                            
+                                break;
                     }
 
                 }
@@ -672,34 +689,40 @@ function renderPhotographerIndividualPage(id)
                     previewBox.classList.remove("show");
                     shadow.style.display = "none";
                     document.querySelector("body").style.overflow = "scroll";
-                }
-
-
-                closeIconLightboxTab.addEventListener('keydown', e =>
-                {
-                    // totalImg.textContent = gallery.length; //passing total img length to totalImg variable
-                    // let clickedImgIndex; //creating new variable
-                    // console.log(e)
-                    if(e.code === 'Enter' )
-                    {
-                        // alert('Hello' + e.key )
-                        e.preventDefault()
-                        newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
-                        prevBtn.style.display = "block"; 
-                        nextBtn.style.display = "block";
-                        previewBox.classList.remove("show");
-                        shadow.style.display = "none";
-                        document.querySelector("body").style.overflow = "scroll";
-                    }
-                    
-                })
-
+                }                
               }
           })
        
       
     }
- 
+
+    
+
+}
+
+
+{/* <span class="icon fas fa-times" id="textId" tabindex="0"></span> */}
+
+// document.getElementById("textId").focus().addEventListener('keydown', e =>
+// {
+//     // document.getElementById("textId").focus();
+//     if(e.code === 'Enter' )
+//     {
+
+//     console.log("hello");
+//     e.preventDefault()
+//     newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
+//     prevBtn.style.display = "block"; 
+//     nextBtn.style.display = "block";
+//     previewBox.classList.remove("show");
+//     shadow.style.display = "none";
+//     document.querySelector("body").style.overflow = "scroll";
+//     }
+// })
+  
    
+    // $(function(){
+    //     document.getElementById("textId").focus();
+    //   })
    
-}   
+// }   

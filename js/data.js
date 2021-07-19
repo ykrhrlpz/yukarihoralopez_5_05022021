@@ -6,7 +6,7 @@ let photographers =
         "city": "London",
         "country": "UK",
         "tags": ["portrait", "events", "travel", "animals"],
-        "tagline": "Voir le beau dans le quotidien",
+        "tagline": "See the beauty in everyday life",
         "price": 400,
         "portrait": "MimiKeel.jpg",
         "altDescription": "thumbnail image of Mimi Keel"
@@ -17,7 +17,7 @@ let photographers =
         "city": "Paris",
         "country": "France",
         "tags": ["sports", "architecture"],
-        "tagline": "Capturer des compositions complexes",
+        "tagline": "Capture complex compositions",
         "price": 250,
         "portrait": "EllieRoseWilkens.jpg",
         "altDescription": "thumbnail of Ellie-Rose Wilkens"
@@ -28,7 +28,7 @@ let photographers =
         "city": "Montreal",
         "country": "Canada",
         "tags": ["art", "fashion", "events"],
-        "tagline": "Photographe freelance",
+        "tagline": "Freelance photographer",
         "price": 500,
         "portrait": "TracyGalindo.jpg",
         "altDescription": "thumbnail of Tracy Galindo"
@@ -39,7 +39,7 @@ let photographers =
         "city": "Mexico City",
         "country": "Mexico",
         "tags": ["travel", "portrait"],
-        "tagline": "Toujours aller de l'avant",
+        "tagline": "Always going forward",
         "price": 350,
         "portrait": "NabeelBradford.jpg",
         "altDescription": "thumbnail of Nabeel Bradford"
@@ -50,7 +50,7 @@ let photographers =
         "city": "Barcelona",
         "country": "Spain",
         "tags": ["sport", "fashion", "events", "animals"],
-        "tagline": "Je crée des souvenirs",
+        "tagline": "I crate memories",
         "price": 275,
         "portrait": "RhodeDubois.jpg",
         "altDescription": "thumbnail Rhode Dubois"
@@ -61,7 +61,7 @@ let photographers =
         "city": "Berlin",
         "country": "Germany",
         "tags": ["travel", "architecture"],
-        "tagline": "Toujours à la recherche de LA photo",
+        "tagline": "Always looking for THE photo",
         "price": 300,
         "portrait": "MarcelNikolic.jpg",
         "altDescription": "thumbnail Marcel Nikolic"

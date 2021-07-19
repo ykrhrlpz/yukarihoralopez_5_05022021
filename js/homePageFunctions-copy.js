@@ -43,7 +43,7 @@ class Photographer {
 				</div>
 			</div>
 			
-			<div class="bground" role="dialog" id="test">
+			<div class="bground" role="dialog">
 				<div class="content">
 					<span class="close"></span>
 					<div class="modal-body">

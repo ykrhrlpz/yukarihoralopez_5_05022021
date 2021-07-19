@@ -1,9 +1,10 @@
 let carouselModelIsOpen = true
 
 class Photographer {
-	constructor(photographer) 
+	constructor(photographer, ownedmedia) 
 	{
 		this.photographer = photographer;
+		this.ownedmedia = ownedmedia;
 	}
 
 	showProfileInMain() 
@@ -25,6 +26,7 @@ class Photographer {
 
 	showIndividualProfile(ID) 
 	{
+		console.log(this.ownedmedia.map(item => item.likes).reduce((accumulator, currentValue) => accumulator + currentValue));
 		createMediaArrayOfPhotographer(ID).map(item => item.media.image)
 		return `   
 			<div class="photographerHeader">
@@ -128,7 +130,7 @@ class Photographer {
 
 			<div class="bottom-card">
 				<div class="rating">
-					<p id="total-likes"></p>
+					<p id="total-likes">${this.ownedmedia.map(item => item.likes).reduce((accumulator, currentValue) => accumulator + currentValue)}</p>
 					<i class="fas fa-heart"></i>
                 </div>
 				<p>$${this.photographer.price}/day</p>
@@ -142,12 +144,8 @@ class Photographer {
 
 
 // Creating array of photographers
-const photographersGroup = []
-for (let photographer of photographers) 
-{
-	const pt = new Photographer(photographer);
-	photographersGroup.push(pt)
-}
+// Using filter on media to be able to recover all the media that this photographer owns.
+const photographersGroup = photographers.map(photographer => new Photographer(photographer, media.filter(mda => mda.photographerId === photographer.id)))
 
 // function to generate tags of photographers｀
 function generateTags(tags) 

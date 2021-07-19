@@ -37,7 +37,7 @@ class Media
                 <div class="img-title">
                     <p>${this.media.title}</p>
                     <div class="rating">
-                        <p id="number-likes-${this.media.id}">${this.media.likes}</p>
+                        <p id="number-likes-${this.media.id}">${media.find(mda => mda.id == this.media.id).likes}</p>
                         <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ class Media
                 <div class="img-title">
                     <p class="media-title">${this.media.title}</p>
                     <div class="rating">
-                        <p id="number-likes-${this.media.id}">${this.media.likes}</p>
+                        <p id="number-likes-${this.media.id}">${media.find(mda => mda.id == this.media.id).likes}</p>
                         <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
                     </div>
                 </div>
@@ -83,28 +83,30 @@ class Media
         return this.media.likes
     }
 }
+
+////////////////////////////////////////////////////////////
  
 //make an array of all the media from every photographer
-const MediaGalleryOfAllPhotographers = []
-for (let item of media)
-{
-    const mda = new Media(item);
-    MediaGalleryOfAllPhotographers.push(mda)
-}
+const MediaGalleryOfAllPhotographers = media.map(item => new Media(item))
+
+// /make an array of all the media from a photographer
+const MediaGalleryByPhotographer = MediaGalleryOfAllPhotographers.map(item => new Media(item))
+
+//----------------------------
+
+
+
+//---------------------------- Style Selectbox 
+
+////////////////////////////////////////////////////////////
+
+
 
 
 //Function to create an array of media group
 function createMediaGroup (array)
 {
     return array.map((media, index) => media.createGallery(index))
-}
-
-// /make an array of all the media from a photographer
-const MediaGalleryByPhotographer = []
-for (let item of MediaGalleryOfAllPhotographers)
-{
-    const mda = new Media(item);
-    MediaGalleryByPhotographer.push(mda)
 }
 
 // fucntion to make an gallery of a photographer
@@ -237,26 +239,11 @@ function showTotalLikes(id)
 function renderPhotographerIndividualPage(id)
 {
 
+
     showTestPageHeader();
     showPhotographerMainSection(photographersGroup, id)
 
-    
-
-    // initCarousel();
-
-    createMediaArrayOfPhotographer(id).forEach(item =>
-    {
-        document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
-        { 
-            let numberLike = document.getElementById(`number-likes-${item.media.id}`).textContent
-            document.getElementById(`number-likes-${item.media.id}`).textContent = parseInt(numberLike) + 1
-            showTotalLikes(id)
-        })
-    })
-
-    showTotalLikes(id)
-
-    // Contact Modal Starts here ----------------------------------------------------------------
+    //---------------------------- Contact Modal
 
     let modalbg = document.querySelector(".bground");
     let modalBtn = document.querySelectorAll(".modal-btn");
@@ -268,7 +255,25 @@ function renderPhotographerIndividualPage(id)
     let formDataLastName = document.getElementById("formData-last")
     let formDataEmail = document.getElementById("formData-email")
     let formDataMessage = document.getElementById("formData-message")
+    //----------------------------
 
+    createMediaArrayOfPhotographer(id).forEach(item =>
+    {
+        document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
+        { 
+            console.log(media[media.findIndex(mda => mda.id == item.media.id)].likes);
+            media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
+            document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
+            showTotalLikes(id)
+            // let numberLike = document.getElementById(`number-likes-${item.media.id}`).textContent
+            // document.getElementById(`number-likes-${item.media.id}`).textContent = parseInt(numberLike) + 1
+            // showTotalLikes(id)
+        })
+    })
+
+    showTotalLikes(id)
+
+    //---------------------------- Contact Modal
     function launchModal()
     {
         modalbg.style.display = "block";
@@ -309,9 +314,15 @@ function renderPhotographerIndividualPage(id)
             closeModal()
         }
     })
+    //---------------------------- 
 
+    //---------------------------- Select Box
 
-    // Contact Modal Ends here ----------------------------------------------------------------
+    //---------------------------- Style Selectbox 
+    let selector = document.querySelector(".custom-selector")
+    // selector.addEventListener("change", e => {
+    // 	console.log("changed", e.target.value);
+    // })
 
     // Sort image gallery by selecting selectbox
     document.getElementById("selectbox").addEventListener("change", () => 
@@ -327,9 +338,10 @@ function renderPhotographerIndividualPage(id)
                 {
                     document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
                     { 
-                        let numberLike = document.getElementById(`number-likes-${item.media.id}`).textContent
-                        document.getElementById(`number-likes-${item.media.id}`).textContent = parseInt(numberLike) + 1
-                        showTotalLikes(id)
+                        media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
+            document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
+            showTotalLikes(id)
+                        
                     })
                 })
                 // showTotalLikes(id)
@@ -343,9 +355,9 @@ function renderPhotographerIndividualPage(id)
                 {
                     document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
                     { 
-                        let numberLike = document.getElementById(`number-likes-${item.media.id}`).textContent
-                        document.getElementById(`number-likes-${item.media.id}`).textContent = parseInt(numberLike) + 1
-                        showTotalLikes(id)
+                        media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
+            document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
+            showTotalLikes(id)
                     })
                 })
                 // showTotalLikes(id)
@@ -359,9 +371,9 @@ function renderPhotographerIndividualPage(id)
                 {
                     document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
                     { 
-                        let numberLike = document.getElementById(`number-likes-${item.media.id}`).textContent
-                        document.getElementById(`number-likes-${item.media.id}`).textContent = parseInt(numberLike) + 1
-                        showTotalLikes(id)
+                        media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
+            document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
+            showTotalLikes(id)
                     })
                 })
                 // showTotalLikes(id)
@@ -377,26 +389,27 @@ function renderPhotographerIndividualPage(id)
         SetGalleryListeners()
     })
 
+    //----------------------------
 
-    //Style Selectbox ----------------------------------------------------------------
-    const selector = document.querySelector(".custom-selector")
-    // selector.addEventListener("change", e => {
-    // 	console.log("changed", e.target.value);
-    // })
 
-    selector.addEventListener("mousedown", e => {
+    
+
+    selector.addEventListener("mousedown", e => 
+    {
         e.preventDefault();
 
         const select = selector.children[0];
         const dropDown = document.createElement("ul");
         dropDown.className = "selector-options";
 
-        [...select.children].forEach(option => {
+        [...select.children].forEach(option => 
+        {
 
             const dropDownOption = document.createElement("li");
             dropDownOption.textContent =  option.textContent;
 
-            dropDownOption.addEventListener("mousedown", e => {
+            dropDownOption.addEventListener("mousedown", e => 
+            {
                 e.stopPropagation();
                 select.value = option.value
                 selector.value = option.value
@@ -583,28 +596,3 @@ function SetGalleryListeners()
 }
 
 
-{/* <span class="icon fas fa-times" id="textId" tabindex="0"></span> */}
-
-// document.getElementById("textId").focus().addEventListener('keydown', e =>
-// {
-//     // document.getElementById("textId").focus();
-//     if(e.code === 'Enter' )
-//     {
-
-//     console.log("hello");
-//     e.preventDefault()
-//     newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
-//     prevBtn.style.display = "block"; 
-//     nextBtn.style.display = "block";
-//     previewBox.classList.remove("show");
-//     shadow.style.display = "none";
-//     document.querySelector("body").style.overflow = "scroll";
-//     }
-// })
-  
-   
-    // $(function(){
-    //     document.getElementById("textId").focus();
-    //   })
-   
-// }   

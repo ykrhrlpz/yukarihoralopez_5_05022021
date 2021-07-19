@@ -247,6 +247,7 @@
 // }
 
 
+
 // document.onkeydown = function(e) {
 //     switch (e.code) {
 //         case 37:
@@ -567,3 +568,31 @@
             //         }
             //     }
             // })
+
+
+
+{/* <span class="icon fas fa-times" id="textId" tabindex="0"></span> */}
+
+// document.getElementById("textId").focus().addEventListener('keydown', e =>
+// {
+//     // document.getElementById("textId").focus();
+//     if(e.code === 'Enter' )
+//     {
+
+//     console.log("hello");
+//     e.preventDefault()
+//     newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
+//     prevBtn.style.display = "block"; 
+//     nextBtn.style.display = "block";
+//     previewBox.classList.remove("show");
+//     shadow.style.display = "none";
+//     document.querySelector("body").style.overflow = "scroll";
+//     }
+// })
+  
+   
+    // $(function(){
+    //     document.getElementById("textId").focus();
+    //   })
+   
+// }   

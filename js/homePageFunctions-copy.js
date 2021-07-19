@@ -204,14 +204,14 @@ function showHomeMainSection(array)
 		group.push(select)
 	})
 	document.getElementById("photographers").innerHTML = group.join("");
+
+	setPhotographerListeners(array)
 }
 
 
-// wait until all the DOM elements renders
-function waitDOMElement()
+
+function setPhotographerListeners(photographersGroup)
 {
-	document.addEventListener('DOMContentLoaded', function()
-	{
 		photographersGroup.forEach(item => 
 		{
 			// create a unique id to each photographer
@@ -223,7 +223,6 @@ function waitDOMElement()
 				}
 			});
 		})
-	})
 }
 
 
@@ -233,30 +232,9 @@ function renderHomePage()
 	showHomePageHeader();
 	showHomeMainSection(photographersGroup);
 	
+	
 }
 
 
 renderHomePage()
-waitDOMElement()
 
-// window.document.onkeydown = function(event){
-//     if (event.code === 'Enter') console.log('hello Enter')
-// }
-
-
-// document.onkeydown = function(e) {
-//     switch (e.code) {
-//         case 37:
-//             alert('left');
-//             break;
-//         case 38:
-//             alert('up');
-//             break;
-//         case 39:
-//             alert('right');
-//             break;
-//         case 40:
-//             alert('down');
-//             break;
-//     }
-// };

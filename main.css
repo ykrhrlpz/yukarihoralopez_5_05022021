@@ -2,11 +2,11 @@
 {
     font-family: 'DM Sans', sans-serif;
 }
-
 *:focus
 {
     outline: 2px solid -webkit-focus-ring-color;
 }
+
 header 
 {
     display: flex;
@@ -29,24 +29,19 @@ header
     {
         width: 100%;
         justify-content: space-between;
-        /* margin-right: 10px;
-    margin-left: 10px; */
         margin-top: 25px;
     }
-    
     .homepage-header a 
     {
         order: 1;
         width: 30%;
     }
-    
     .homepage-header img,
     #header-photographer img 
     {
         width: 125px;
         margin-left: 10px;
     }
-    
     .homepage-header nav 
     {
         order: 3;
@@ -55,7 +50,6 @@ header
         width: 80%;
         margin: 0 auto;
     }
-    
     .homepage-header h1 
     {
         order: 2;
@@ -134,6 +128,7 @@ header h1
 {
     line-height: 47px;
 }
+
 .photographer h2 
 {
     font-size: 36px;
@@ -252,11 +247,6 @@ header h1
 }
 .photographerHeaderLeft 
 {
-    /* display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: center; */
-    
     text-align: left;
 }
 .photographerHeaderLeft h2,
@@ -337,14 +327,6 @@ header h1
     {
         font-size: 16px;
     }
-    /* .photographerHeaderLeft .category-button
-  
-    {
-      font-size: 16px;
-      padding: 5px;
-      border-radius: 30px;
-  } */
-    
     .header-description 
     {
         font-size: 12px;
@@ -362,8 +344,7 @@ header h1
         padding-left: 53px;
         text-transform: lowercase;
         line-height: 18px;
-    }
-    
+    }  
     .header-profile-img-container 
     {
         position: absolute;
@@ -507,8 +488,7 @@ header h1
     cursor: pointer;
     margin-top: 5px;
     font-size: 18px;
-    /* remove native icon on the right */
-    
+    /* remove native icon on the right */ 
     appearance: none;
 }
 
@@ -599,23 +579,15 @@ header h1
 }
 .gallery .image img 
 {
-    /* width: 100%; */
-    
     vertical-align: middle;
     transition: all 0.3s ease;
 }
-
-/* .gallery .image:hover img{
-  transform: scale(1.1);
-} */
 .preview-box 
 {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.9);
-    /* background: #fff; */
-    
     max-width: 700px;
     width: 100%;
     z-index: 5;
@@ -623,7 +595,6 @@ header h1
     pointer-events: none;
     border-radius: 3px;
     padding: 0 5px 5px 5px;
-    /* box-shadow: 0px 0px 15px rgba(0,0,0,0.2); */
 }
 .preview-box.show 
 {
@@ -641,20 +612,10 @@ header h1
 }
 .preview-box .details .title 
 {
-    /* display: flex; */
-    
     font-size: 18px;
     font-weight: 400;
     display: none;
 }
-
-/* .details .title p{
-  margin: 0 5px;
-} */
-
-/* .details .title p.current-img{
-  font-weight: 500;
-} */
 .details .icon 
 {
     color: #901C1C;
@@ -709,40 +670,17 @@ header h1
     z-index: 2;
     display: none;
     background: #fff;
-    /* background: rgba(0,0,0,0.45); */
 }
-
-/* 
-@media(max-width: 1000px){
-  .gallery .image{
-    width: calc(100% / 2);
-  }
-}
-@media(max-width: 600px){
-  .gallery .image{
-    width: 100%;
-    padding: 4px;
-  }
-} */
 @media(max-width: 700px) 
 {
-    /* .preview-box.show{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
-    transition: all 0.3s ease;
-} */
-    
     .slide.prev 
     {
         left: 5px;
-    }
-    
+    } 
     .slide.next 
     {
         right: 5px;
     }
-    
     .image-box img 
     {
         width: 70%;
@@ -750,13 +688,11 @@ header h1
         object-fit: cover;
         margin: 0 auto;
     }
-    
     .lightbox-image-description 
     {
         width: 70%;
         margin: 0 auto;
     }
-    
     .details .icon 
     {
         top: 20px;
@@ -764,7 +700,6 @@ header h1
         z-index: 1000;
     }
 }
-
 /* ----------------------- lightbox Ends here*/
 
 /* Modal form */
@@ -916,6 +851,7 @@ textarea.text-control:focus
 }
 
 /* custom select end */
+
 .content button 
 {
     margin-top: .7rem;
@@ -931,7 +867,6 @@ button:focus
         opacity: 0;
         transform: translateY(-150px);
     }
-    
     to 
     {
         opacity: 1;
@@ -943,40 +878,33 @@ button:focus
     {
         padding: 25px 8%;
     }
-    
     .modal-body-title:nth-child(2) 
     {
         margin-bottom: 25px;
     }
-    
     .content 
     {
         margin: 0;
         min-height: 100%;
         height: max-content;
     }
-    
     label 
     {
         margin-bottom: 6px;
         margin-top: 10px;
     }
-    
     .text-control 
     {
         height: 34px;
     }
-    
     .textarea-text 
     {
         height: 170px;
-    }
-    
+    } 
     .close 
     {
         top: 22px;
-    }
-    
+    }  
     .close:before,
     .close:after 
     {
@@ -987,14 +915,12 @@ button:focus
         width: 4px;
         background-color: #fff;
     }
-    
     .btn-submit 
     {
         margin: 0 auto;
         padding: 8px 70px;
         font-size: 1.1rem;
     }
-    
     .content button 
     {
         margin-top: 1.2rem;

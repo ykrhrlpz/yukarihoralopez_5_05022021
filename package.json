@@ -1,23 +1,27 @@
 {
-  "name": "yukarihoralopez_6_05022021",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint js/**.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ykrhrlpz/yukarihoralopez_6_05022021.git"
-  },
-  "author": "Yukari Hora Lopez",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ykrhrlpz/yukarihoralopez_6_05022021/issues"
-  },
-  "homepage": "https://github.com/ykrhrlpz/yukarihoralopez_6_05022021#readme",
-  "devDependencies": {
-    "eslint": "^7.31.0"
-  }
+    "name": "yukarihoralopez_6_05022021",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": 
+    { 
+        "test": "echo \"Error: no test specified\" && exit 1",
+            "lint": "eslint js/**.js"
+    },
+    "repository": 
+    {
+        "type": "git",
+        "url": "git+https://github.com/ykrhrlpz/yukarihoralopez_6_05022021.git"
+    },
+    "author": "Yukari Hora Lopez",
+    "license": "ISC",
+    "bugs": 
+    {
+        "url": "https://github.com/ykrhrlpz/yukarihoralopez_6_05022021/issues"
+    },
+    "homepage": "https://github.com/ykrhrlpz/yukarihoralopez_6_05022021#readme",
+    "devDependencies": 
+    {
+        "eslint": "^7.31.0"
+    }
 }

@@ -1,146 +1,146 @@
 let carouselModelIsOpen = true
 
-class Photographer {
-	constructor(photographer, ownedmedia) 
-	{
-		this.photographer = photographer;
-		this.ownedmedia = ownedmedia;
-	}
+// class Photographer {
+// 	constructor(photographer, ownedmedia) 
+// 	{
+// 		this.photographer = photographer;
+// 		this.ownedmedia = ownedmedia;
+// 	}
 
-	showProfileInMain() 
-	{
-		return ` 
-			<article class="photographer">
-				<div id="render-individual-page-${this.photographer.id}" onclick="renderPhotographerIndividualPage(${this.photographer.id})">
-					<img class="profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="leads to individual page" tabindex="0">
-					<h2>${this.photographer.name}</h2>
-				</div>
-				<h5>${this.photographer.city}, ${this.photographer.country}</h5>
-				<p class="description">${this.photographer.tagline}</p>
-				<p class="price-per-day">$${this.photographer.price}/day</p>
-				${generateTags(this.photographer.tags)}
-			</article>		
-        	`
+// 	showProfileInMain() 
+// 	{
+// 		return ` 
+// 			<article class="photographer">
+// 				<div id="render-individual-page-${this.photographer.id}" onclick="renderPhotographerIndividualPage(${this.photographer.id})">
+// 					<img class="profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="leads to individual page" tabindex="0">
+// 					<h2>${this.photographer.name}</h2>
+// 				</div>
+// 				<h5>${this.photographer.city}, ${this.photographer.country}</h5>
+// 				<p class="description">${this.photographer.tagline}</p>
+// 				<p class="price-per-day">$${this.photographer.price}/day</p>
+// 				${generateTags(this.photographer.tags)}
+// 			</article>		
+//         	`
 		
-	}
+// 	}
 
-	showIndividualProfile(ID) 
-	{
-		console.log(this.ownedmedia.map(item => item.likes).reduce((accumulator, currentValue) => accumulator + currentValue));
-		createMediaArrayOfPhotographer(ID).map(item => item.media.image)
-		return `   
-			<div class="photographerHeader">
-				<div class="photographerHeaderLeft">
-						<div>
-							<h2>${this.photographer.name}</h2>
-							<h5>${this.photographer.city}, ${this.photographer.country}</h5>
-							<p class="header-description">${this.photographer.tagline}</p>
-							${generateTagsForIndividualPage(this.photographer.tags)}
-						</div>
-				</div>
+// 	showIndividualProfile(ID) 
+// 	{
+// 		console.log(this.ownedmedia.map(item => item.likes).reduce((accumulator, currentValue) => accumulator + currentValue));
+// 		createMediaArrayOfPhotographer(ID).map(item => item.media.image)
+// 		return `   
+// 			<div class="photographerHeader">
+// 				<div class="photographerHeaderLeft">
+// 						<div>
+// 							<h2>${this.photographer.name}</h2>
+// 							<h5>${this.photographer.city}, ${this.photographer.country}</h5>
+// 							<p class="header-description">${this.photographer.tagline}</p>
+// 							${generateTagsForIndividualPage(this.photographer.tags)}
+// 						</div>
+// 				</div>
 		
-				<button class="contact-button modal-btn">Contact me</button>
-				<div class="header-profile-img-container">
-					<img class="header-profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="Thumnail of ${this.photographer.name}">
-				</div>
-			</div>
+// 				<button class="contact-button modal-btn">Contact me</button>
+// 				<div class="header-profile-img-container">
+// 					<img class="header-profile-img" src="./img/PhotographersIDPhotos/${this.photographer.portrait}" alt="Thumnail of ${this.photographer.name}">
+// 				</div>
+// 			</div>
 			
-			<div class="bground" role="dialog">
-				<div class="content">
-					<span class="close"></span>
-					<div class="modal-body">
+// 			<div class="bground" role="dialog">
+// 				<div class="content">
+// 					<span class="close"></span>
+// 					<div class="modal-body">
 				
-						<p class="modal-body-title">Contact me</p>
-						<p class="modal-body-title">${this.photographer.name}</p>
-						<form
-						id="contact-form"
-						name="reserve"
-						action="index.html"
-						method="get"
-						>
-							<div class="formData">
-								<label for="formData-first">First Name</label><br>
-								<input
-								class="text-control"
-								type="text"
-								id="formData-first"
-								name="first"
-								/><br>
-							</div>
+// 						<p class="modal-body-title">Contact me</p>
+// 						<p class="modal-body-title">${this.photographer.name}</p>
+// 						<form
+// 						id="contact-form"
+// 						name="reserve"
+// 						action="index.html"
+// 						method="get"
+// 						>
+// 							<div class="formData">
+// 								<label for="formData-first">First Name</label><br>
+// 								<input
+// 								class="text-control"
+// 								type="text"
+// 								id="formData-first"
+// 								name="first"
+// 								/><br>
+// 							</div>
 					
-							<div class="formData">
-								<label for="formData-last">Last Name</label><br>
-								<input
-								class="text-control"
-								type="text"
-								id="formData-last"
-								name="last"
-								/><br>
-							</div>
+// 							<div class="formData">
+// 								<label for="formData-last">Last Name</label><br>
+// 								<input
+// 								class="text-control"
+// 								type="text"
+// 								id="formData-last"
+// 								name="last"
+// 								/><br>
+// 							</div>
 					
-							<div class="formData">
-								<label for="formData-email">Email</label><br>
-								<input
-								class="text-control"
-								type="email"
-								id="formData-email"
-								name="email"
-								/><br>
-							</div>
+// 							<div class="formData">
+// 								<label for="formData-email">Email</label><br>
+// 								<input
+// 								class="text-control"
+// 								type="email"
+// 								id="formData-email"
+// 								name="email"
+// 								/><br>
+// 							</div>
 					
-							<div class="formData">
-								<label for="formData-message">Your message</label><br>
-								<textarea
-									class="text-control textarea-text"
-									type="email"
-									id="formData-message"
-									name="message"
-								></textarea>
+// 							<div class="formData">
+// 								<label for="formData-message">Your message</label><br>
+// 								<textarea
+// 									class="text-control textarea-text"
+// 									type="email"
+// 									id="formData-message"
+// 									name="message"
+// 								></textarea>
 					
-							</div>
-							<button
-								class="btn-submit button"
-								type="submit"
-							>
-								Send
-							</button>
-						</form>
-					</div>
-				</div>
-			</div>
+// 							</div>
+// 							<button
+// 								class="btn-submit button"
+// 								type="submit"
+// 							>
+// 								Send
+// 							</button>
+// 						</form>
+// 					</div>
+// 				</div>
+// 			</div>
 
-			<div class="selectbox-container">
-				<p class="sorting-text">Order by</p>
-				<label class="custom-selector">
+// 			<div class="selectbox-container">
+// 				<p class="sorting-text">Order by</p>
+// 				<label class="custom-selector">
 					
-					<select id="selectbox">
-						<option value="popularity">Popularity</option>
-						<option value="date">Date</option>
-						<option value="title">Title</option>
-					</select>
-				</label>
-			</div>
+// 					<select id="selectbox">
+// 						<option value="popularity">Popularity</option>
+// 						<option value="date">Date</option>
+// 						<option value="title">Title</option>
+// 					</select>
+// 				</label>
+// 			</div>
 
 
-			<div class="gallery-wrapper">
-				<div id="photo-gallery" class="gallery">
-					${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
-				</div>
-			</div> 
+// 			<div class="gallery-wrapper">
+// 				<div id="photo-gallery" class="gallery">
+// 					${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
+// 				</div>
+// 			</div> 
 
-			<div class="bottom-card">
-				<div class="rating">
-					<p id="total-likes">${this.ownedmedia.map(item => item.likes).reduce((accumulator, currentValue) => accumulator + currentValue)}</p>
-					<i class="fas fa-heart"></i>
-                </div>
-				<p>$${this.photographer.price}/day</p>
-			</div>
+// 			<div class="bottom-card">
+// 				<div class="rating">
+// 					<p id="total-likes">${this.ownedmedia.map(item => item.likes).reduce((accumulator, currentValue) => accumulator + currentValue)}</p>
+// 					<i class="fas fa-heart"></i>
+//                 </div>
+// 				<p>$${this.photographer.price}/day</p>
+// 			</div>
 
 		
-			`
-		}
+// 			`
+// 		}
 
-	}
+// 	}
 
 
 // Creating array of photographers

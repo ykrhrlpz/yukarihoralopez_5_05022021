@@ -196,7 +196,7 @@ function renderPhotographerIndividualPage(id)
         main.setAttribute("aria-hidden", "true")
         modalbg.setAttribute('aria-hidden', 'false')
         main.classList.add("no-scroll")
-        closeFormModal.focus()
+        document.querySelector("#formData-first").focus()
     }
     //function to closse modal
     function closeModal()
@@ -205,6 +205,9 @@ function renderPhotographerIndividualPage(id)
         main.setAttribute("aria-hidden", "false")
         modalbg.setAttribute('aria-hidden', 'true')
         main.classList.remove("no-scroll")
+        
+        
+
         modalOpenBtn.focus()
     }
 
@@ -418,6 +421,15 @@ function SetGalleryListeners()
         previewBox.classList.remove("show");
         shadow.style.display = "none";
         document.querySelector("body").style.overflow = "scroll";
+
+        document.querySelector(".sliderimage").setAttribute("aria-hidden", true)
+        document.querySelector(".sliderimage").setAttribute("tabindex", -1)
+        images = [...document.getElementsByClassName("image")]
+        images.forEach(el => el.setAttribute("aria-hidden", false))
+        images.forEach(el => el.setAttribute("tabindex", 0))
+        videos = [...document.getElementsByClassName("video")]
+        videos.forEach(el => el.setAttribute("aria-hidden", false))
+        videos.forEach(el => el.setAttribute("tabindex", 0))
     }
 
     for (let i = 0; i < gallery.length; i++) 
@@ -461,15 +473,32 @@ function SetGalleryListeners()
             const lightmodal = document.getElementById("lightbox-modal")
             const galleryWrapper = document.getElementById("gallery-wrapper")
 
-            // Displays the actual lightbox
+            // Displays the actual lightbox 
             document.querySelector("body").style.overflow = "hidden";
             previewBox.classList.add("show"); 
             shadow.style.display = "block"; 
             main.setAttribute("aria-hidden", "true")
             main.setAttribute("visibility", "hidden")
-            lightmodal.setAttribute('aria-hidden', 'false')
+            lightmodal.setAttribute('aria-hidden', 'true')
             galleryWrapper.setAttribute("aria-hidden", "true")
-            galleryWrapper.setAttribute("visibility", "hidden")
+
+            // Making sure that the sliderimage is focusable.
+            document.querySelector(".sliderimage").setAttribute("aria-hidden", false)
+            document.querySelector(".sliderimage").setAttribute("tabindex", 0)
+
+            // Making an array of the images and make them unfocusable.
+            images = [...document.getElementsByClassName("image")]
+            images.forEach(el => el.setAttribute("aria-hidden", true))
+            images.forEach(el => el.setAttribute("tabindex", -1))
+
+            // Making an array of the videos and make them unfocusable.
+            videos = [...document.getElementsByClassName("video")]
+            videos.forEach(el => el.setAttribute("aria-hidden", true))
+            videos.forEach(el => el.setAttribute("tabindex", -1))
+
+            // Setting the focus to the slider image.
+            document.querySelector(".sliderimage").focus()
+
         }
        
           // Open a lightbox with keyboard
@@ -508,8 +537,6 @@ function SetGalleryListeners()
 
                 const main = document.getElementById("photographer-indivisual-main");
                 const lightmodal = document.getElementById("lightbox-modal")
-                const galleryWrapper = document.getElementById("gallery-wrapper")
-
 
                 // Displays the actual lightbox
                 document.querySelector("body").style.overflow = "hidden";
@@ -517,13 +544,19 @@ function SetGalleryListeners()
                 shadow.style.display = "block";   
                 
                 main.setAttribute("aria-hidden", "true")
-                main.setAttribute("visibility", "hidden")
                 lightmodal.setAttribute('aria-hidden', 'false')
-                galleryWrapper.setAttribute("aria-hidden", "true")
-                galleryWrapper.style.visibility = "hidden"
+
+                document.querySelector(".sliderimage").setAttribute("aria-hidden", false)
+                document.querySelector(".sliderimage").setAttribute("tabindex", 0)
+                images = [...document.getElementsByClassName("image")]
+                images.forEach(el => el.setAttribute("aria-hidden", true))
+                images.forEach(el => el.setAttribute("tabindex", -1))
+                videos = [...document.getElementsByClassName("video")]
+                videos.forEach(el => el.setAttribute("aria-hidden", true))
+                videos.forEach(el => el.setAttribute("tabindex", -1))
+                document.querySelector(".sliderimage").focus()
               }
           })
     }
 }
-
 

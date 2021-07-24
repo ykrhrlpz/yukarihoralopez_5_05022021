@@ -47,55 +47,63 @@ class Photographer {
 					<span class="close" id="form-modal-close"></span>
 					<div class="modal-body">
 				
-						<p class="modal-body-title">Contact me</p>
-						<p class="modal-body-title">${this.photographer.name}</p>
+						<h1 class="modal-body-title" id="formTitle">Contact me <br> ${this.photographer.name}</h1>
 						<form
 						id="contact-form"
 						name="reserve"
 						action="index.html"
 						method="get"
+						aria-labelledby="formTitle"
 						>
 							<div class="formData">
-								<label for="formData-first">First Name</label><br>
+								<label for="formData-first" id="first-name-label">First Name</label><br>
 								<input
 								class="text-control"
 								type="text"
 								id="formData-first"
 								name="first"
 								aria-required="true"
+								required
+								aria-labelledby="first-name-label"
 								/><br>
 							</div>
 					
 							<div class="formData">
-								<label for="formData-last">Last Name</label><br>
+								<label for="formData-last" id="last-name-label">Last Name</label><br>
 								<input
 								class="text-control"
 								type="text"
 								id="formData-last"
 								name="last"
 								aria-required="true"
+								required
+								aria-labelledby="last-name-label"
 								/><br>
 							</div>
 					
 							<div class="formData">
-								<label for="formData-email">Email</label><br>
+								<label for="formData-email" id="email-label">Email</label><br>
 								<input
 								class="text-control"
 								type="email"
 								id="formData-email"
 								name="email"
 								aria-required="true"
+								required
+								aria-labelledby="email-label"
 								/><br>
 							</div>
 					
 							<div class="formData">
-								<label for="formData-message">Your message</label><br>
+								<label for="formData-message" id="message-label">Your message</label><br>
 								<textarea
 									class="text-control textarea-text"
 									type="email"
 									id="formData-message"
 									name="message"
 									aria-required="true"
+									required
+									aria-labelledby="message-label"
 								></textarea>
 					
 							</div>

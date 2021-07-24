@@ -5,11 +5,11 @@ const photographersGroup = photographers.map(photographer => new Photographer(ph
 // function to generate tags of photographers｀
 function generateTags(tags) 
 {
-	return tags.map(tag => `<button class="category-button mr-1" onclick="showHomeMainSection(filterPhotographersByTag('${tag}'))">#${tag}</button>`).join('')
+	return tags.map(tag => `<button class="category-button mr-1" onclick="showHomeMainSection(filterPhotographersByTag('${tag}'))">#${tag}<span class="sr-only">${tag}</span></button>`).join('')
 }
 function generateTagsForIndividualPage(tags) 
 {
-	return tags.map(tag => `<button class="category-button-individual-page mr-1" tabindex="-1")">#${tag}</button>`).join('')
+	return tags.map(tag => `<button class="category-button-individual-page mr-1" tabindex="-1")">#${tag}<span class="sr-only">${tag}</span></button>`).join('')
 }
 
 // function to sort photographers by tag

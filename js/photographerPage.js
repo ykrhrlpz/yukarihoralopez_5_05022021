@@ -1,4 +1,5 @@
-function showTestPageHeader()
+// Function to show the header of individual page 
+function showIndividualPageHeader()
 {
   document.getElementById("body").innerHTML = 
   `
@@ -10,92 +11,15 @@ function showTestPageHeader()
     <main id="photographer-indivisual-main"></main>
   `
 }
-
-// ----------------------------------------
-// class Media
-// {
-//     constructor(media)
-//     {
-//         this.media = media;
-//     }
-//     getPhotographerID()
-//     {
-//         return this.media.photographerId
-//     }
-
-//     createGallery()
-//     {
-//         if (this.media.video) 
-//         {
-//             return `
-//             <article class="image-item">        
-//                 <video controls="controls" preload="metadata" poster="./img/PhotographersIDPhotos/${getPhotographerFullNameById(this.media.photographerId)}.jpg">
-//                     <source src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.video}" type="video/mp4">
-//                     Sorry, your browser doesn't support embedded videos.
-//                 </video>
-
-//                 <div class="img-title">
-//                     <p>${this.media.title}</p>
-//                     <div class="rating">
-//                         <p id="number-likes-${this.media.id}">${media.find(mda => mda.id == this.media.id).likes}</p>
-//                         <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
-//                     </div>
-//                 </div>
-//             </article>
-        
-//             `
-//         } 
-//         else 
-//         {
-//             return `
-//             <article class="image-item">
-            
-//                 <div class="image" tabindex="0">
-//                     <img src="./img/${getPhotographerNameById(this.media.photographerId)}/${this.media.image}" alt="${this.media.altDescription}"/>
-//                 </div>
-//                 <div class="img-title">
-//                     <p class="media-title">${this.media.title}</p>
-//                     <div class="rating">
-//                         <p id="number-likes-${this.media.id}">${media.find(mda => mda.id == this.media.id).likes}</p>
-//                         <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
-//                     </div>
-//                 </div>
-//             </article> 
-
-//             <div class="preview-box" role="dialog" aria-modal="true" >
-//                 <div class="details">
-//                     <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
-//                     <span class="icon fas fa-times" tabindex="0"></span>
-//                 </div>
-//                 <div class="image-box">
-//                     <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-//                     <div class="slide next"><i class="fas fa-angle-right"></i></div>
-//                     <img src="" alt="">
-//                 </div>
-//                 <div class="lightbox-image-description"><p></p></div>
-//             </div>
-//             <div class="shadow"></div>
-//             `
-//         }
-//     }
-//     getLikes()
-//     {
-//         return this.media.likes
-//     }
-// }
-
 ////////////////////////////////////////////////////////////
  
 //make an array of all the media from every photographer
 const MediaGalleryOfAllPhotographers = media.map(item => new Media(item))
 
-// /make an array of all the media from a photographer
+// /make an array of all the media from one photographer
 const MediaGalleryByPhotographer = MediaGalleryOfAllPhotographers.map(item => new Media(item))
 
 ////////////////////////////////////////////////////////////
-
-
-
 
 //Function to create an array of media group
 function createMediaGroup (array)
@@ -103,7 +27,7 @@ function createMediaGroup (array)
     return array.map((media, index) => media.createGallery(index))
 }
 
-// fucntion to make an gallery of a photographer
+// fucntion to make an gallery of one photographer passing id of photographer
 function createMediaArrayOfPhotographer(ID) 
 {
     let mediaGroupByPhotographers = [];
@@ -148,7 +72,7 @@ function createMediaArrayOfPhotographerByTitle(ID)
     return mediaGroupByPhotographers[0]
 }
 
-// fucntion to sort gallery of a photographer by title
+// fucntion to sort gallery of a photographer by popularity
 function createMediaArrayOfPhotographerByPopularity(ID) 
 {
     let mediaGroupByPhotographers = [];
@@ -158,21 +82,21 @@ function createMediaArrayOfPhotographerByPopularity(ID)
     return mediaGroupByPhotographers[0]
 }
 
-// function to insert sorted gallery to DOM 
+// function to insert gallery sorted by date to DOM 
 function showGallerySortedByDate(ID)
 {
     let content = createMediaGroup(createMediaArrayOfPhotographerByDate(ID)).join("")
     document.getElementById("photo-gallery").innerHTML = content
 }
 
-// function to insert sorted gallery to DOM 
+// function to insert gallery sorted by title to DOM 
 function showGallerySortedByTitle(ID)
 {
     let content = createMediaGroup(createMediaArrayOfPhotographerByTitle(ID)).join("")
     document.getElementById("photo-gallery").innerHTML = content
 }
 
-// function to insert sorted gallery to DOM 
+// function to insert gallery sorted by popularity to DOM 
 function showGallerySortedBypopularity(ID)
 {
     let content = createMediaGroup(createMediaArrayOfPhotographerByPopularity(ID)).join("")
@@ -220,6 +144,7 @@ function calculateSumOfLikes(id)
     return totalLikes
 }
 
+//function to show the total number of likes in HTML
 function showTotalLikes(id)
 {
     document.getElementById("total-likes").textContent = calculateSumOfLikes(id)
@@ -228,9 +153,7 @@ function showTotalLikes(id)
 // function to render photographer's page
 function renderPhotographerIndividualPage(id)
 {
-
-
-    showTestPageHeader();
+    showIndividualPageHeader();
     showPhotographerMainSection(photographersGroup, id)
 
     //---------------------------- Contact Modal
@@ -239,6 +162,10 @@ function renderPhotographerIndividualPage(id)
     let modalBtn = document.querySelectorAll(".modal-btn");
     let form = document.getElementById("contact-form");
     let closeIcon = document.querySelector(".close");
+    let closeFormModal = document.getElementById("form-modal-close");
+    const body = document.getElementById("body")
+    let modalOpenBtn = document.querySelector(".contact-button");
+    let main = document.getElementById("photographer-indivisual-main");
 
         ////////// Form inputs
     let formDataFirstName = document.getElementById("formData-first")
@@ -249,34 +176,46 @@ function renderPhotographerIndividualPage(id)
 
     createMediaArrayOfPhotographer(id).forEach(item =>
     {
+        //add eventlister to the element with the unique id
         document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
         { 
-            console.log(media[media.findIndex(mda => mda.id == item.media.id)].likes);
+            // Increment the number of likes everytime a user clicks a heart icon
             media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
             document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
             showTotalLikes(id)
-     
         })
     })
 
     showTotalLikes(id)
 
     //---------------------------- Contact Modal
+    //function to launch modal
     function launchModal()
     {
         modalbg.style.display = "block";
+        main.setAttribute("aria-hidden", "true")
+        modalbg.setAttribute('aria-hidden', 'false')
+        main.classList.add("no-scroll")
+        closeFormModal.focus()
     }
-
+    //function to closse modal
     function closeModal()
     {
         modalbg.style.display = "none";
+        main.setAttribute("aria-hidden", "false")
+        modalbg.setAttribute('aria-hidden', 'true')
+        main.classList.remove("no-scroll")
+        modalOpenBtn.focus()
     }
 
+    // function to log the input value a user enter
     function outputForValue()
     {
         console.log("Name:", formDataFirstName.value + " " + formDataLastName.value);
         console.log("Email:", formDataEmail.value);
         console.log("Message:", formDataMessage.value);
+
+        closeModal()
     }
 
     //Launch modal event
@@ -286,13 +225,13 @@ function renderPhotographerIndividualPage(id)
     {
         closeModal();
     });
-
+    
+    //Submit modal event
     form.addEventListener("submit", event => 
     {
         event.preventDefault();
         outputForValue()
     })
-
 
     // Close Modal when a user presses escape key
     document.addEventListener('keydown', e =>
@@ -306,7 +245,6 @@ function renderPhotographerIndividualPage(id)
 
     //---------------------------- Select Box
 
-    //---------------------------- Style Selectbox 
     let selector = document.querySelector(".custom-selector")
 
     // Sort image gallery by selecting selectbox
@@ -323,7 +261,9 @@ function renderPhotographerIndividualPage(id)
                 {
                     document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
                     { 
+                        // On click, increment the current likes for this media. 
                         media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
+                        // Refreshing text content
                         document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
                         showTotalLikes(id)
                         
@@ -339,7 +279,9 @@ function renderPhotographerIndividualPage(id)
                 {
                     document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
                     { 
+                        // On click, increment the current likes for this media. 
                         media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
+                        // Refreshing text content
                         document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
                         showTotalLikes(id)
                     })
@@ -354,7 +296,9 @@ function renderPhotographerIndividualPage(id)
                 {
                     document.getElementById(`add-${item.media.id}`).addEventListener("click", () => 
                     { 
+                        // On click, increment the current likes for this media. 
                         media[media.findIndex(mda => mda.id == item.media.id)].likes = media[media.findIndex(mda => mda.id == item.media.id)].likes + 1
+                        // Refreshing text content
                         document.getElementById(`number-likes-${item.media.id}`).textContent = media[media.findIndex(mda => mda.id == item.media.id)].likes
                         showTotalLikes(id)
                     })
@@ -370,11 +314,7 @@ function renderPhotographerIndividualPage(id)
         SetGalleryListeners()
     })
 
-    //----------------------------
-
-
-    
-
+    //---------------------------- Style Selectbox 
     selector.addEventListener("mousedown", e => 
     {
         e.preventDefault();
@@ -385,7 +325,6 @@ function renderPhotographerIndividualPage(id)
 
         [...select.children].forEach(option => 
         {
-
             const dropDownOption = document.createElement("li");
             dropDownOption.textContent =  option.textContent;
 
@@ -405,10 +344,10 @@ function renderPhotographerIndividualPage(id)
         selector.appendChild(dropDown);
     })
 
-    // Lightbox starts here ----------------------------------------------------------------
-
     SetGalleryListeners()
 }
+
+// Lightbox starts here ----------------------------------------------------------------
 
 function SetGalleryListeners()
 {
@@ -473,7 +412,6 @@ function SetGalleryListeners()
 
     function onEscapeAction(clickedImgIndex, nextBtn, prevBtn, previewBox, shadow)
     {
-        // console.log('Hello' + e.key )
         newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
         prevBtn.style.display = "block"; 
         nextBtn.style.display = "block";
@@ -489,8 +427,7 @@ function SetGalleryListeners()
         let clickedImgIndex; //creating new variable
         
         gallery[i].onclick = () =>
-        {
-         
+        {  
             clickedImgIndex = i; //passing cliked image index to created variable (clickedImgIndex)
 
             preview(newIndex); //calling above function
@@ -520,10 +457,19 @@ function SetGalleryListeners()
 
             closeIconLightbox.onclick = ()=> onEscapeAction(clickedImgIndex, nextBtn, prevBtn, previewBox, shadow)
 
+            const main = document.getElementById("photographer-indivisual-main");
+            const lightmodal = document.getElementById("lightbox-modal")
+            const galleryWrapper = document.getElementById("gallery-wrapper")
+
             // Displays the actual lightbox
             document.querySelector("body").style.overflow = "hidden";
             previewBox.classList.add("show"); 
             shadow.style.display = "block"; 
+            main.setAttribute("aria-hidden", "true")
+            main.setAttribute("visibility", "hidden")
+            lightmodal.setAttribute('aria-hidden', 'false')
+            galleryWrapper.setAttribute("aria-hidden", "true")
+            galleryWrapper.setAttribute("visibility", "hidden")
         }
        
           // Open a lightbox with keyboard
@@ -560,10 +506,21 @@ function SetGalleryListeners()
 
                 closeIconLightbox.onclick = ()=> onEscapeAction(clickedImgIndex, nextBtn, prevBtn, previewBox, shadow)
 
+                const main = document.getElementById("photographer-indivisual-main");
+                const lightmodal = document.getElementById("lightbox-modal")
+                const galleryWrapper = document.getElementById("gallery-wrapper")
+
+
                 // Displays the actual lightbox
                 document.querySelector("body").style.overflow = "hidden";
                 previewBox.classList.add("show"); 
-                shadow.style.display = "block";        
+                shadow.style.display = "block";   
+                
+                main.setAttribute("aria-hidden", "true")
+                main.setAttribute("visibility", "hidden")
+                lightmodal.setAttribute('aria-hidden', 'false')
+                galleryWrapper.setAttribute("aria-hidden", "true")
+                galleryWrapper.style.visibility = "hidden"
               }
           })
     }

@@ -24,7 +24,6 @@ class Photographer {
 
 	showIndividualProfile(ID) 
 	{
-		console.log(this.ownedmedia.map(item => item.likes).reduce((accumulator, currentValue) => accumulator + currentValue));
 		createMediaArrayOfPhotographer(ID).map(item => item.media.image)
 		return `   
 			<div class="photographerHeader">
@@ -43,9 +42,9 @@ class Photographer {
 				</div>
 			</div>
 			
-			<div class="bground" role="dialog">
+			<div class="bground" role="dialog" aria-modal=”true” aria-hidden="true">
 				<div class="content">
-					<span class="close"></span>
+					<span class="close" id="form-modal-close"></span>
 					<div class="modal-body">
 				
 						<p class="modal-body-title">Contact me</p>
@@ -63,6 +62,7 @@ class Photographer {
 								type="text"
 								id="formData-first"
 								name="first"
+								aria-required="true"
 								/><br>
 							</div>
 					
@@ -73,6 +73,7 @@ class Photographer {
 								type="text"
 								id="formData-last"
 								name="last"
+								aria-required="true"
 								/><br>
 							</div>
 					
@@ -83,6 +84,7 @@ class Photographer {
 								type="email"
 								id="formData-email"
 								name="email"
+								aria-required="true"
 								/><br>
 							</div>
 					
@@ -93,6 +95,7 @@ class Photographer {
 									type="email"
 									id="formData-message"
 									name="message"
+									aria-required="true"
 								></textarea>
 					
 							</div>
@@ -119,8 +122,7 @@ class Photographer {
 				</label>
 			</div>
 
-
-			<div class="gallery-wrapper">
+			<div class="gallery-wrapper" id="gallery-wrapper" aria-hidden="false">
 				<div id="photo-gallery" class="gallery">
 					${createMediaGroup(createMediaArrayOfPhotographer(ID)).join("")}
 				</div>
@@ -133,10 +135,7 @@ class Photographer {
                 </div>
 				<p>$${this.photographer.price}/day</p>
 			</div>
-
-		
 			`
 		}
 
 	}
-

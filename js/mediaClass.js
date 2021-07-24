@@ -1,3 +1,4 @@
+
 class Media
 {
     constructor(media)
@@ -28,7 +29,6 @@ class Media
                     </div>
                 </div>
             </article>
-        
             `
         } 
         else 
@@ -43,20 +43,21 @@ class Media
                     <p class="media-title">${this.media.title}</p>
                     <div class="rating">
                         <p id="number-likes-${this.media.id}">${media.find(mda => mda.id == this.media.id).likes}</p>
-                        <i id="add-${this.media.id}" class="fas fa-heart" aria-hidden="true"></i>
+                        <i id="add-${this.media.id}" class="fas fa-heart"></i>
                     </div>
                 </div>
             </article> 
 
-            <div class="preview-box" role="dialog" aria-modal="true" >
+            <div class="preview-box" role="dialog" aria-modal="true" aria-hidden="true" id=
+            "lightbox-modal">
                 <div class="details">
                     <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
-                    <span class="icon fas fa-times" tabindex="0"></span>
+                    <span class="icon fas fa-times" aria-hidden="true"></span>
                 </div>
-                <div class="image-box">
+                <div class="image-box" aria-label="Photogallery of a photographer" aria-roledescription=”carousel”>
                     <div class="slide prev"><i class="fas fa-angle-left"></i></div>
                     <div class="slide next"><i class="fas fa-angle-right"></i></div>
-                    <img src="" alt="">
+                    <img src="" alt="" aria-roledescription=”slide”>
                 </div>
                 <div class="lightbox-image-description"><p></p></div>
             </div>
